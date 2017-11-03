@@ -1,5 +1,14 @@
 REST tutorial: https://jeremycurny.com/2016/03/27/symfony3-rest-api/
 
+# Vagrant users
+## Add the line 
+```sh
+  type: symfony
+```
+to Homestead.yaml for this very website.
+
+## Add 192.168.10.1 to the ip adress exceptions 
+
 Symfony Standard Edition
 ========================
 
