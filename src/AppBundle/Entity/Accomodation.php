@@ -63,6 +63,24 @@ class Accomodation
     protected $lat;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Picture")
+     * @ORM\JoinColumn(name="pictures", referencedColumnName="id")
+     */
+    protected $pictures;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Availability")
+     * @ORM\JoinColumn(name="availabilities", referencedColumnName="id")
+     */
+    protected $availabilities;
+
+    /**
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="host", referencedColumnName="id")
+     */
+    protected $host;
+
+    /**
      * @ORM\Column(name="nb_bedroom", type="integer")
      */
     protected $nb_bedroom;
