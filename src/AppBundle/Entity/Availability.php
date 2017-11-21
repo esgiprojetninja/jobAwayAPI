@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="picture")
+ * @ORM\Table(name="availability")
  */
-class Picture
+class Availability
 {
     public function __construct() {
         $this->updated_at = new \DateTime();
