@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ApiController extends FOSRestController
 {
     /**
-     * @Rest\Get("/api")
+     * @Rest\Get("/")
      */
     public function indexAction(Request $request)
     {
