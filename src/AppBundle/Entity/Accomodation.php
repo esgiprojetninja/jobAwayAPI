@@ -623,4 +623,52 @@ class Accomodation
         $this->updated_at = $updated_at;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * @param mixed $pictures
+     */
+    public function setPictures($pictures)
+    {
+        $this->pictures = $pictures;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAvailabilities()
+    {
+        return $this->availabilities;
+    }
+
+    /**
+     * @param mixed $availabilities
+     */
+    public function setAvailabilities($availabilities)
+    {
+        $this->availabilities = $availabilities;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
+
+    /**
+     * @param mixed $host
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
+    }
+
 }

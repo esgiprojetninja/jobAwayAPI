@@ -2,23 +2,24 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use AppBundle\Entity\Tag;
-use AppBundle\Entity\Article;
+use AppBundle\Entity\Picture;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
 
-class Fixtures extends Fixture
+class PictureFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+
         $faker = \Faker\Factory::create();
-        $tags = [];
+
+        $pictures = [];
         for ($i = 0; $i < 20; $i++) {
-            $tag = new Tag();
-            $tag->setName($faker->name);
-            $tags[] = $tag;
-            $manager->persist($tag);
+            $picture = new Picture();
+            $picture->setUrl($faker->imageUrl());
+            $pictures[] = $picture;
+            $manager->persist($picture);
         }
 
         $manager->flush();
