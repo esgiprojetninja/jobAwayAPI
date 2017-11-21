@@ -100,5 +100,5 @@ class Picture
     {
         $this->updated_at = $updated_at;
     }
-    
+
 }
