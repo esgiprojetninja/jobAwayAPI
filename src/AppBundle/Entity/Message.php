@@ -128,7 +128,7 @@ class Message
      * @param array
      * @return self
      */
-    public function setAandidate($candidate) {
+    public function setCandidate($candidate) {
         $this->candidate = $candidate;
         return $this;
     }
@@ -137,7 +137,7 @@ class Message
      * @param Appbundle\Entity\Candidate
      * @return self
      */
-    public function removeAandidate($candidate) {
+    public function removeCandidate($candidate) {
         $this->candidate->removeElement($candidate);
         return $this;
     }

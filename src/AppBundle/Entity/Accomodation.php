@@ -56,14 +56,14 @@ class Accomodation
     protected $address;
 
     /**
-     * @ORM\Column(name="long", type="float")
+     * @ORM\Column(name="longitude", type="float")
      */
-    protected $long;
+    protected $longitude;
 
     /**
-     * @ORM\Column(name="lat", type="float")
+     * @ORM\Column(name="latitude", type="float")
      */
-    protected $lat;
+    protected $latitude;
 
     /**
      * @ORM\ManyToOne(targetEntity="Picture",cascade={"persist"})
@@ -78,7 +78,7 @@ class Accomodation
     protected $availabilities;
 
     /**
-     * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="User", cascade={"persist"})
      * @ORM\JoinColumn(name="host", referencedColumnName="id")
      */
     protected $host;
@@ -334,52 +334,37 @@ class Accomodation
     }
 
     /**
-     * Set long
-     *
-     * @param float $long
-     *
-     * @return Accomodation
+     * @return mixed
      */
-    public function setLong($long)
+    public function getLongitude()
     {
-        $this->long = $long;
-
-        return $this;
+        return $this->longitude;
     }
 
     /**
-     * Get long
-     *
-     * @return float
+     * @param mixed $longitude
      */
-    public function getLong()
+    public function setLongitude($longitude)
     {
-        return $this->long;
+        $this->longitude = $longitude;
     }
 
     /**
-     * Set lat
-     *
-     * @param float $lat
-     *
-     * @return Accomodation
+     * @return mixed
      */
-    public function setLat($lat)
+    public function getLatitude()
     {
-        $this->lat = $lat;
-
-        return $this;
+        return $this->latitude;
     }
 
     /**
-     * Get lat
-     *
-     * @return float
+     * @param mixed $latitude
      */
-    public function getLat()
+    public function setLatitude($latitude)
     {
-        return $this->lat;
+        $this->latitude = $latitude;
     }
+
 
     /**
      * Set nbBedroom

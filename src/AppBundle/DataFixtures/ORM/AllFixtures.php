@@ -58,9 +58,8 @@ class AllFixtures extends Fixture
             $accomodation->setCountry($faker->country);
             $accomodation->setRegion($faker->text);
             $accomodation->setAddress($faker->address);
-            $accomodation->setLong($faker->longitude);
-            $accomodation->setLat($faker->latitude);
-
+            $accomodation->setLongitude($faker->longitude);
+            $accomodation->setLatitude($faker->latitude);
             $accomodationPictures = [];
             for($i2 = 0; $i2 < 5; $i2++) {
                 $picture = $pictures[rand(0, 19)];
@@ -77,9 +76,7 @@ class AllFixtures extends Fixture
                     $accomodation->setAvailabilities($availability);
                 }
             }
-
             $accomodation->setHost($users[rand(0, 19)]);
-
             $accomodation->setNbBedroom($faker->numberBetween());
             $accomodation->setNbBathroom($faker->numberBetween());
             $accomodation->setNbToilet($faker->numberBetween());
@@ -98,19 +95,23 @@ class AllFixtures extends Fixture
             $accomodation->setCheckinHour($faker->datetime);
             $accomodation->setCheckoutHour($faker->datetime);
             $accomodations[] = $accomodation;
+            $manager->persist($accomodation);
         }
 
-      /*  $candidates = [];
+        $candidates = [];
         for ($i = 0; $i < 20; $i++) {
             $candidate = new Candidate();
-            $candidate->addUser($users[rand(0, 19)]);
-            $candidate->addAccomodation($accomodations[rand(0, 19)]);
+            $candidate->setUser($users[rand(0, 2)]);
+            $candidate->setAccomodation($accomodations[rand(0, 2)]);
+            if($candidate->checkDupe() === 1){
+                continue;
+            }
             $candidate->setFromDate($faker->dateTime);
             $candidate->setToDate($faker->dateTime);
             $candidates[] = $candidate;
             $manager->persist($candidate);
         }
-
+/*
         $messages = [];
         for ($i = 0; $i < 20; $i++) {
             $message = new Message();
@@ -134,8 +135,8 @@ class AllFixtures extends Fixture
             $booking->addTraveller($users[rand(0, 19)]);
             $bookings[] = $booking;
             $manager->persist($booking);
-        }*/
-
+        }
+*/
         $manager->flush();
     }
 }
