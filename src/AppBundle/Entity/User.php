@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
-* @ORM\Entity
+ * @ORM\Entity
  * @ApiResource
-* @ORM\Table(name="user")
-*/
+ * @ORM\Table(name="user")
+ */
 class User
 {
     public function __construct() {
