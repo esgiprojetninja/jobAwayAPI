@@ -66,7 +66,7 @@ class AllFixtures extends Fixture
                 $picture = $pictures[rand(0, 19)];
                 if (!in_array($pictures, $accomodationPictures)) {
                     $accomodationPictures[] = $picture;
-                    $accomodation->addPicture($picture);
+                    $accomodation->setPictures($picture);
                 }
             }
             $accomodationAvailabilities = [];
@@ -74,11 +74,11 @@ class AllFixtures extends Fixture
                 $availability = $availabilities[rand(0, 19)];
                 if (!in_array($availability, $accomodationAvailabilities)) {
                     $accomodationAvailabilities[] = $availability;
-                    $accomodation->addAvailabilities($availability);
+                    $accomodation->setAvailabilities($availability);
                 }
             }
 
-            $accomodation->addHost($users[rand(0, 19)]);
+            $accomodation->setHost($users[rand(0, 19)]);
 
             $accomodation->setNbBedroom($faker->numberBetween());
             $accomodation->setNbBathroom($faker->numberBetween());
@@ -100,7 +100,7 @@ class AllFixtures extends Fixture
             $accomodations[] = $accomodation;
         }
 
-        $candidates = [];
+      /*  $candidates = [];
         for ($i = 0; $i < 20; $i++) {
             $candidate = new Candidate();
             $candidate->addUser($users[rand(0, 19)]);
@@ -134,7 +134,7 @@ class AllFixtures extends Fixture
             $booking->addTraveller($users[rand(0, 19)]);
             $bookings[] = $booking;
             $manager->persist($booking);
-        }
+        }*/
 
         $manager->flush();
     }

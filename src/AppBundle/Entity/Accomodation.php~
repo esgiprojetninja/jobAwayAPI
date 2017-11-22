@@ -1,0 +1,181 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="accomodation")
+ */
+class Accomodation
+{
+    public function __construct() {
+        $this->pictures = new ArrayCollection();
+        $this->availabilities = new ArrayCollection();
+        $this->updated_at = new \DateTime();
+        $this->created_at = new \DateTime();
+    }
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(name="description", type="text")
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(name="city", type="string", length=255)
+     */
+    protected $city;
+
+    /**
+     * @ORM\Column(name="region", type="string", length=255)
+     */
+    protected $region;
+
+    /**
+     * @ORM\Column(name="coutry", type="string", length=255)
+     */
+    protected $country;
+
+    /**
+     * @ORM\Column(name="address", type="string", length=255)
+     */
+    protected $address;
+
+    /**
+     * @ORM\Column(name="long", type="float")
+     */
+    protected $long;
+
+    /**
+     * @ORM\Column(name="lat", type="float")
+     */
+    protected $lat;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Picture",cascade={"persist"})
+     * @ORM\JoinColumn(name="pictures", referencedColumnName="id")
+     */
+    protected $pictures;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Availability", cascade={"persist"})
+     * @ORM\JoinColumn(name="availabilities", referencedColumnName="id")
+     */
+    protected $availabilities;
+
+    /**
+     * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
+     * @ORM\JoinColumn(name="host", referencedColumnName="id")
+     */
+    protected $host;
+
+    /**
+     * @ORM\Column(name="nb_bedroom", type="integer")
+     */
+    protected $nb_bedroom;
+
+    /**
+     * @ORM\Column(name="nb_bathroom", type="integer")
+     */
+    protected $nb_bathroom;
+
+    /**
+     * @ORM\Column(name="nb_toilet", type="integer")
+     */
+    protected $nb_toilet;
+
+    /**
+     * @ORM\Column(name="nb_max_baby", type="integer")
+     */
+    protected $nb_max_baby;
+
+    /**
+     * @ORM\Column(name="nb_max_child", type="integer")
+     */
+    protected $nb_max_child;
+
+    /**
+     * @ORM\Column(name="nb_max_guest", type="integer")
+     */
+    protected $nb_max_guest;
+
+    /**
+     * @ORM\Column(name="nb_max_adult", type="integer")
+     */
+    protected $nb_max_adult;
+
+    /**
+     * @ORM\Column(name="animals_allowed", type="boolean")
+     */
+    protected $animals_allowed;
+
+    /**
+     * @ORM\Column(name="smokers_allowed", type="boolean")
+     */
+    protected $smokers_allowed;
+
+    /**
+     * @ORM\Column(name="has_internet", type="boolean")
+     */
+    protected $has_internet;
+
+    /**
+     * @ORM\Column(name="property_size", type="float")
+     */
+    protected $property_size;
+
+    /**
+     * @ORM\Column(name="floor", type="integer")
+     */
+    protected $floor;
+
+    /**
+     * @ORM\Column(name="min_stay", type="integer")
+     */
+    protected $min_stay;
+
+    /**
+     * @ORM\Column(name="max_stay", type="integer")
+     */
+    protected $max_stay;
+
+    /**
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    protected $type;
+
+    /**
+     * @ORM\Column(name="checkin_hour", type="datetime")
+     */
+    protected $checkin_hour;
+
+    /**
+     * @ORM\Column(name="checkout_hour", type="datetime")
+     */
+    protected $checkout_hour;
+
+    /**
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    protected $created_at;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    protected $updated_at;
+
+}
