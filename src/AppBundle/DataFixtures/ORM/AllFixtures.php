@@ -49,7 +49,7 @@ class AllFixtures extends Fixture
             $manager->persist($availability);
         }
 
-        /*$accomodations = [];
+        $accomodations = [];
         for ($i = 0; $i < 20; $i++) {
             $accomodation = new Accomodation();
             $accomodation->setTitle($faker->title);
@@ -99,14 +99,14 @@ class AllFixtures extends Fixture
             $accomodation->setCheckoutHour($faker->datetime);
             $accomodations[] = $accomodation;
         }
-/*
+
         $candidates = [];
         for ($i = 0; $i < 20; $i++) {
             $candidate = new Candidate();
             $candidate->addUser($users[rand(0, 19)]);
             $candidate->addAccomodation($accomodations[rand(0, 19)]);
-            $candidate->setFrom($faker->dateTime);
-            $candidate->setTo($faker->dateTime);
+            $candidate->setFromDate($faker->dateTime);
+            $candidate->setToDate($faker->dateTime);
             $candidates[] = $candidate;
             $manager->persist($candidate);
         }
@@ -135,7 +135,7 @@ class AllFixtures extends Fixture
             $bookings[] = $booking;
             $manager->persist($booking);
         }
-*/
+
         $manager->flush();
     }
 }
