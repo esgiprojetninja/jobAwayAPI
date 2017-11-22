@@ -16,3 +16,5 @@
 /vendor/
 /web/bundles/
 /web/app_dev.php
+.idea/*
+*.php~
