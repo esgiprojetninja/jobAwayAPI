@@ -23,12 +23,12 @@ class Availability
     protected $id;
 
     /**
-     * @ORM\Column(name="$from_date", type="datetime")
+     * @ORM\Column(name="from_date", type="datetime")
      */
     protected $from_date;
 
     /**
-     * @ORM\Column(name="$to_date", type="datetime")
+     * @ORM\Column(name="to_date", type="datetime")
      */
     protected $to_date;
 
