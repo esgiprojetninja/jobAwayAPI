@@ -23,14 +23,14 @@ class Availability
     protected $id;
 
     /**
-     * @ORM\Column(name="from", type="datetime")
+     * @ORM\Column(name="$from_date", type="datetime")
      */
-    protected $from;
+    protected $from_date;
 
     /**
-     * @ORM\Column(name="to", type="datetime")
+     * @ORM\Column(name="$to_date", type="datetime")
      */
-    protected $to;
+    protected $to_date;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
@@ -61,33 +61,33 @@ class Availability
     /**
      * @return mixed
      */
-    public function getFrom()
+    public function getFromDate()
     {
-        return $this->from;
+        return $this->from_date;
     }
 
     /**
-     * @param mixed $from
+     * @param mixed $from_date
      */
-    public function setFrom($from)
+    public function setFromDate($from_date)
     {
-        $this->from = $from;
+        $this->from_date = $from_date;
     }
 
     /**
      * @return mixed
      */
-    public function getTo()
+    public function getToDate()
     {
-        return $this->to;
+        return $this->to_date;
     }
 
     /**
-     * @param mixed $to
+     * @param mixed $to_date
      */
-    public function setTo($to)
+    public function setToDate($to_date)
     {
-        $this->to = $to;
+        $this->to_date = $to_date;
     }
 
     /**
@@ -122,5 +122,5 @@ class Availability
         $this->updated_at = $updated_at;
     }
 
-    
+
 }
