@@ -28,13 +28,13 @@ class Message
     protected $content;
 
     /**
-     * @ORM\OneToOne(targetEntity="Accomodation", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Accomodation", cascade={"persist"})
      * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
      */
     protected $accomodation;
 
     /**
-     * @ORM\OneToOne(targetEntity="Candidate", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Candidate", cascade={"persist"})
      * @ORM\JoinColumn(name="candidate", referencedColumnName="id")
      */
     protected $candidate;
@@ -49,8 +49,11 @@ class Message
      */
     protected $updated_at;
 
+
     /**
-     * @return mixed
+     * Get id
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -58,15 +61,23 @@ class Message
     }
 
     /**
-     * @param mixed $id
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Message
      */
-    public function setId($id)
+    public function setContent($content)
     {
-        $this->id = $id;
+        $this->content = $content;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get content
+     *
+     * @return string
      */
     public function getContent()
     {
@@ -74,85 +85,23 @@ class Message
     }
 
     /**
-     * @param mixed $content
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Message
      */
-    public function setContent($content)
+    public function setCreatedAt($createdAt)
     {
-        $this->content = $content;
-    }
+        $this->created_at = $createdAt;
 
-    /**
-     * Get the value of accomodation
-     * @return array
-     */
-    public function getAccomodation() {
-        return $this->accomodation;
-    }
-    /**
-     * Set the value of accomodation
-     * @param array
-     * @return self
-     */
-    public function setAccomodation($accomodation) {
-        $this->accomodation = $accomodation;
-        return $this;
-    }
-    /**
-     * Removes an accomodation
-     * @param Appbundle\Entity\Accomodation
-     * @return self
-     */
-    public function removeAccomodation($accomodation) {
-        $this->accomodation->removeElement($accomodation);
-        return $this;
-    }
-    /**
-     * Adds an accomodation
-     * @param Appbundle\Entity\Accomodation
-     * @return self
-     */
-    public function addAccomodation($accomodation) {
-        $this->accomodation->add($accomodation);
         return $this;
     }
 
     /**
-     * Get the value of candidate
-     * @return array
-     */
-    public function getCandidate() {
-        return $this->candidate;
-    }
-    /**
-     * Set the value of candidate
-     * @param array
-     * @return self
-     */
-    public function setCandidate($candidate) {
-        $this->candidate = $candidate;
-        return $this;
-    }
-    /**
-     * Removes a candidate
-     * @param Appbundle\Entity\Candidate
-     * @return self
-     */
-    public function removeCandidate($candidate) {
-        $this->candidate->removeElement($candidate);
-        return $this;
-    }
-    /**
-     * Adds a candidate
-     * @param Appbundle\Entity\Candidate
-     * @return self
-     */
-    public function addCandidate($candidate) {
-        $this->candidate->add($candidate);
-        return $this;
-    }
-
-    /**
-     * @return mixed
+     * Get createdAt
+     *
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -160,15 +109,23 @@ class Message
     }
 
     /**
-     * @param mixed $created_at
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Message
      */
-    public function setCreatedAt($created_at)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->created_at = $created_at;
+        $this->updated_at = $updatedAt;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get updatedAt
+     *
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -176,11 +133,50 @@ class Message
     }
 
     /**
-     * @param mixed $updated_at
+     * Set accomodation
+     *
+     * @param \AppBundle\Entity\Accomodation $accomodation
+     *
+     * @return Message
      */
-    public function setUpdatedAt($updated_at)
+    public function setAccomodation(\AppBundle\Entity\Accomodation $accomodation = null)
     {
-        $this->updated_at = $updated_at;
+        $this->accomodation = $accomodation;
+
+        return $this;
     }
 
+    /**
+     * Get accomodation
+     *
+     * @return \AppBundle\Entity\Accomodation
+     */
+    public function getAccomodation()
+    {
+        return $this->accomodation;
+    }
+
+    /**
+     * Set candidate
+     *
+     * @param \AppBundle\Entity\Candidate $candidate
+     *
+     * @return Message
+     */
+    public function setCandidate(\AppBundle\Entity\Candidate $candidate = null)
+    {
+        $this->candidate = $candidate;
+
+        return $this;
+    }
+
+    /**
+     * Get candidate
+     *
+     * @return \AppBundle\Entity\Candidate
+     */
+    public function getCandidate()
+    {
+        return $this->candidate;
+    }
 }

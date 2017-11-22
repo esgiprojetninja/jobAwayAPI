@@ -1,0 +1,52 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="message")
+ */
+class Message
+{
+    public function __construct() {
+        $this->updated_at = new \DateTime();
+        $this->created_at = new \DateTime();
+    }
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(name="content", type="text")
+     */
+    protected $content;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Accomodation", cascade={"persist"})
+     * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
+     */
+    protected $accomodation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Candidate", cascade={"persist"})
+     * @ORM\JoinColumn(name="candidate", referencedColumnName="id")
+     */
+    protected $candidate;
+
+    /**
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    protected $created_at;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    protected $updated_at;
+
+}

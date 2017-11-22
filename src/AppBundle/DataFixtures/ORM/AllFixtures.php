@@ -103,21 +103,21 @@ class AllFixtures extends Fixture
             $candidate = new Candidate();
             $candidate->setUser($users[rand(0, 2)]);
             $candidate->setAccomodation($accomodations[rand(0, 2)]);
-            if($candidate->checkDupe() === 1){
+            /*if($candidate->checkDupe() === 1){
                 continue;
-            }
+            }*/
             $candidate->setFromDate($faker->dateTime);
             $candidate->setToDate($faker->dateTime);
             $candidates[] = $candidate;
             $manager->persist($candidate);
         }
-/*
+
         $messages = [];
         for ($i = 0; $i < 20; $i++) {
             $message = new Message();
             $message->setContent($faker->text);
-            $message->addAccomodation($accomodations[rand(0, 19)]);
-            $message->addCandidate($candidates[rand(0, 19)]);
+            $message->setAccomodation($accomodations[rand(0, 19)]);
+            $message->setCandidate($candidates[rand(0, 19)]);
             $messages[] = $message;
             $manager->persist($message);
         }
@@ -131,12 +131,12 @@ class AllFixtures extends Fixture
             $booking->setCheckoutDate($faker->dateTime);
             $booking->setCheckinDetails($faker->text);
             $booking->setCheckoutDetails($faker->text);
-            $booking->addAccomodation($accomodations[rand(0, 19)]);
-            $booking->addTraveller($users[rand(0, 19)]);
+            $booking->setAccommodation($accomodations[rand(0, 19)]);
+            $booking->setTraveller($users[rand(0, 19)]);
             $bookings[] = $booking;
             $manager->persist($booking);
         }
-*/
+
         $manager->flush();
     }
 }

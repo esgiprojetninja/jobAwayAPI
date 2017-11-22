@@ -1,0 +1,87 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="booking")
+ */
+class Booking
+{
+    public function __construct() {
+        $this->updated_at = new \DateTime();
+        $this->created_at = new \DateTime();
+    }
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Accomodation", cascade={"persist"})
+     * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
+     */
+    protected $accommodation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", cascade={"persist"})
+     * @ORM\JoinColumn(name="traveller", referencedColumnName="id")
+     */
+    protected $traveller;
+
+    /**
+     * @ORM\Column(name="checkin_date", type="datetime")
+     */
+    protected $checkin_date;
+
+    /**
+     * @ORM\Column(name="checkout_date", type="datetime")
+     */
+    protected $checkout_date;
+
+    /**
+     * @ORM\Column(name="checkin_hour", type="string", length=255)
+     */
+    protected $checkin_hour;
+
+    /**
+     * @ORM\Column(name="checkout_hour", type="string", length=255)
+     */
+    protected $checkout_hour;
+
+    /**
+     * @ORM\Column(name="checkin_details", type="string", length=255)
+     */
+    protected $checkin_details;
+
+    /**
+     * @ORM\Column(name="checkout_details", type="string", length=255)
+     */
+    protected $checkout_details;
+
+    /**
+     * @ORM\Column(name="nb_nights", type="integer")
+     */
+    protected $nb_nights;
+
+    /**
+     * @ORM\Column(name="nb_persons", type="integer")
+     */
+    protected $nb_persons;
+
+    /**
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    protected $created_at;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    protected $updated_at;
+
+}
