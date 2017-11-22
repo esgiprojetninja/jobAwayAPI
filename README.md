@@ -9,6 +9,17 @@ to Homestead.yaml for this very website.
 
 ## Add 192.168.10.1 to the ip adress exceptions 
 
+## Set up
+```sh
+  Create the migration file : php bin/console d:m:d
+  Then launch the migration : php bin/console d:m:m
+```
+
+## Add some datas
+```sh
+  Launch the data fixture : php bin/console d:f:l
+```
+
 Symfony Standard Edition
 ========================
 
