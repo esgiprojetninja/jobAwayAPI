@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9e50c41-b05a-4661-9388-4e88a49151d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AllFixtures.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AccomodationFixtures.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/CandidateFixtures.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/PictureFixtures.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/UserFixtures.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/MessageFixtures.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Accomodation.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Accomodation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AllFixtures.php" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AllFixtures.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Availability.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Availability.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Message.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Message.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,30 +20,18 @@
       <file leaf-file-name="Candidate.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="140" selection-end-column="5" />
+            <state relative-caret-position="405">
+              <caret line="90" column="21" lean-forward="false" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageFixtures.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/MessageFixtures.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="23" selection-end-column="9" />
-              <folding>
-                <element signature="e#46#75#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Availability.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Availability.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Availability.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="601">
+              <caret line="124" column="4" lean-forward="false" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -58,8 +40,8 @@
       <file leaf-file-name="Booking.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="31" column="61" lean-forward="false" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+            <state relative-caret-position="43">
+              <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -68,8 +50,8 @@
       <file leaf-file-name="AllFixtures.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AllFixtures.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="117" column="41" lean-forward="false" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
+            <state relative-caret-position="432">
+              <caret line="48" column="43" lean-forward="false" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
               <folding>
                 <element signature="e#46#80#0#PHP" expanded="true" />
               </folding>
@@ -89,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Message.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Message.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Message.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
@@ -150,12 +132,12 @@
         <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/PictureFixtures.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/CandidateFixtures.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AccomodationFixtures.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Availability.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Accomodation.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AllFixtures.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Message.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Booking.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AllFixtures.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Availability.php" />
       </list>
     </option>
   </component>
@@ -281,12 +263,12 @@
       <option name="presentableId" value="Default" />
       <updated>1509706814031</updated>
       <workItem from="1509706818154" duration="2782000" />
-      <workItem from="1511278386755" duration="15631000" />
+      <workItem from="1511278386755" duration="16105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18413000" />
+    <option name="totallyTimeSpent" value="18887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -605,22 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Availability.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="31" column="61" lean-forward="false" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Picture.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="668">
@@ -649,26 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="23" selection-end-column="9" />
-          <folding>
-            <element signature="e#46#75#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AllFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="117" column="41" lean-forward="false" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
-          <folding>
-            <element signature="e#46#80#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="140" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -687,6 +633,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="130" column="34" lean-forward="false" selection-start-line="130" selection-start-column="34" selection-end-line="130" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="90" column="21" lean-forward="false" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Booking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/AllFixtures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="48" column="43" lean-forward="false" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+          <folding>
+            <element signature="e#46#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Availability.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="124" column="4" lean-forward="false" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="4" />
           <folding />
         </state>
       </provider>

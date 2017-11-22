@@ -101,35 +101,73 @@ class Booking
     }
 
     /**
-     * @return mixed
+     * Get the value of traveller
+     * @return array
      */
-    public function getAccommodation()
-    {
-        return $this->accommodation;
-    }
-
-    /**
-     * @param mixed $accommodation
-     */
-    public function setAccommodation($accommodation)
-    {
-        $this->accommodation = $accommodation;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTraveller()
-    {
+    public function getTraveller() {
         return $this->traveller;
     }
+    /**
+     * Set the value of traveller
+     * @param array
+     * @return self
+     */
+    public function setTraveller($traveller) {
+        $this->traveller = $traveller;
+        return $this;
+    }
+    /**
+     * Removes a traveller
+     * @param Appbundle\Entity\User
+     * @return self
+     */
+    public function removeTraveller($traveller) {
+        $this->traveller->removeElement($traveller);
+        return $this;
+    }
+    /**
+     * Adds a traveller
+     * @param Appbundle\Entity\User
+     * @return self
+     */
+    public function addTraveller($traveller) {
+        $this->traveller->add($traveller);
+        return $this;
+    }
 
     /**
-     * @param mixed $traveller
+     * Get the value of accomodation
+     * @return array
      */
-    public function setTraveller($traveller)
-    {
-        $this->traveller = $traveller;
+    public function getAccomodation() {
+        return $this->accomodation;
+    }
+    /**
+     * Set the value of accomodation
+     * @param array
+     * @return self
+     */
+    public function setAccomodation($accomodation) {
+        $this->accomodation = $accomodation;
+        return $this;
+    }
+    /**
+     * Removes an accomodation
+     * @param Appbundle\Entity\Accomodation
+     * @return self
+     */
+    public function removeAccomodation($accomodation) {
+        $this->accomodation->removeElement($accomodation);
+        return $this;
+    }
+    /**
+     * Adds an accomodation
+     * @param Appbundle\Entity\Accomodation
+     * @return self
+     */
+    public function addAccomodation($accomodation) {
+        $this->accomodation->add($accomodation);
+        return $this;
     }
 
     /**

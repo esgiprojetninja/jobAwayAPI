@@ -42,11 +42,11 @@ class AllFixtures extends Fixture
 
         $availabilities = [];
         for ($i = 0; $i < 20; $i++) {
-            $availabilitie = new Availability();
-            $availabilitie->setFrom($faker->dateTime);
-            $availabilitie->setTo($faker->dateTime);
-            $availabilities[] = $availabilitie;
-            $manager->persist($availabilitie);
+            $availability = new Availability();
+            $availability->setFrom($faker->dateTime);
+            $availability->setTo($faker->dateTime);
+            $availabilities[] = $availability;
+            $manager->persist($availability);
         }
 
         $accomodations = [];
@@ -104,7 +104,7 @@ class AllFixtures extends Fixture
         for ($i = 0; $i < 20; $i++) {
             $candidate = new Candidate();
             $candidate->addUser($users[rand(0, 19)]);
-            $candidate->setAccomodation($accomodations[rand(0, 19)]);
+            $candidate->addAccomodation($accomodations[rand(0, 19)]);
             $candidate->setFrom($faker->dateTime);
             $candidate->setTo($faker->dateTime);
             $candidates[] = $candidate;
@@ -115,10 +115,25 @@ class AllFixtures extends Fixture
         for ($i = 0; $i < 20; $i++) {
             $message = new Message();
             $message->setContent($faker->text);
-            $message->setAccomodationId(1);
-            $message->setCandidateId(1);
+            $message->addAccomodation($accomodations[rand(0, 19)]);
+            $message->addCandidate($candidates[rand(0, 19)]);
             $messages[] = $message;
             $manager->persist($message);
+        }
+
+        $bookings = [];
+        for ($i = 0; $i < 20; $i++) {
+            $booking = new Booking();
+            $booking->setCheckoutHour($faker->time);
+            $booking->setCheckinHour($faker->time);
+            $booking->setCheckinDate($faker->dateTime);
+            $booking->setCheckoutDate($faker->dateTime);
+            $booking->setCheckinDetails($faker->text);
+            $booking->setCheckoutDetails($faker->text);
+            $booking->addAccomodation($accomodations[rand(0, 19)]);
+            $booking->addTraveller($users[rand(0, 19)]);
+            $bookings[] = $booking;
+            $manager->persist($booking);
         }
 
         $manager->flush();
