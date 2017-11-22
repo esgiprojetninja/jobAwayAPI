@@ -42,7 +42,5 @@ class CandidatesFixtures extends Fixture
             AccomodationsFixtures::class,
         );
     }
-
-    public function checkDupe(Candidate $candidate, ObjectManager $manager) {
-    }
+    
 }
