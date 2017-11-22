@@ -4,9 +4,11 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ORM\Entity
+ * @ApiResource
  * @ORM\Table(name="accomodation")
  */
 class Accomodation
