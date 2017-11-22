@@ -21,7 +21,7 @@ class MessagesFixtures extends Fixture
             $message = new Message();
             $message->setContent($faker->text);
             $message->setAccomodation($accomodations[rand(0, 19)]);
-            $message->setCandidate($candidates[rand(0, 19)]);
+            $message->setCandidate($candidates[rand(0, count($candidates) -1)]);
             $manager->persist($message);
         }
         $manager->flush();
