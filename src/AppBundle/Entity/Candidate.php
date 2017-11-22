@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\User;
 
 /**
@@ -218,15 +219,6 @@ class Candidate
     public function getAccomodation()
     {
         return $this->accomodation;
-    }
-
-    public function checkDupe() {
-        var_dump($this->user);
-        //Si pour l'id accomodation passé en paramètre il existe déjà un record avec l'id user de l'objet courrant alors retourne une exception
-        if ($this->user->getId() != 0){
-            return 1;
-        }
-        return 0;
     }
 
     /**
