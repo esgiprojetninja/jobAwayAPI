@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -11,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Accomodation
 {
     public function __construct() {
+        $this->pictures = new ArrayCollection();
+        $this->availabilities = new ArrayCollection();
         $this->updated_at = new \DateTime();
         $this->created_at = new \DateTime();
     }
@@ -63,19 +66,19 @@ class Accomodation
     protected $lat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Picture")
+     * @ORM\ManyToOne(targetEntity="Picture",cascade={"persist"})
      * @ORM\JoinColumn(name="pictures", referencedColumnName="id")
      */
     protected $pictures;
 
     /**
-     * @ORM\OneToOne(targetEntity="Availability")
+     * @ORM\ManyToOne(targetEntity="Availability", cascade={"persist"})
      * @ORM\JoinColumn(name="availabilities", referencedColumnName="id")
      */
     protected $availabilities;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
      * @ORM\JoinColumn(name="host", referencedColumnName="id")
      */
     protected $host;
@@ -624,51 +627,107 @@ class Accomodation
     }
 
     /**
-     * @return mixed
+     * Get the value of pictures
+     * @return array
      */
-    public function getPictures()
-    {
+    public function getTags() {
         return $this->pictures;
     }
-
     /**
-     * @param mixed $pictures
+     * Set the value of pictures
+     * @param array
+     * @return self
      */
-    public function setPictures($pictures)
-    {
+    public function setPictures($pictures) {
         $this->pictures = $pictures;
+        return $this;
+    }
+    /**
+     * Removes a picture
+     * @param Appbundle\Entity\Picture
+     * @return self
+     */
+    public function removeTag($tag) {
+        $this->pictures->removeElement($picture);
+        return $this;
+    }
+    /**
+     * Adds a picture
+     * @param Appbundle\Entity\Picture
+     * @return self
+     */
+    public function addPicture($picture) {
+        $this->pictures->add($picture);
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get the value of host
+     * @return array
      */
-    public function getAvailabilities()
-    {
-        return $this->availabilities;
-    }
-
-    /**
-     * @param mixed $availabilities
-     */
-    public function setAvailabilities($availabilities)
-    {
-        $this->availabilities = $availabilities;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHost()
-    {
+    public function getHost() {
         return $this->host;
     }
-
     /**
-     * @param mixed $host
+     * Set the value of host
+     * @param array
+     * @return self
      */
-    public function setHost($host)
-    {
+    public function setHost($host) {
         $this->host = $host;
+        return $this;
+    }
+    /**
+     * Removes a host
+     * @param Appbundle\Entity\User
+     * @return self
+     */
+    public function removeHost($host) {
+        $this->host->removeElement($host);
+        return $this;
+    }
+    /**
+     * Adds a host
+     * @param Appbundle\Entity\User
+     * @return self
+     */
+    public function addHost($host) {
+        $this->host->add($host);
+        return $this;
     }
 
+    /**
+     * Get the value of availability
+     * @return array
+     */
+    public function getAvailabilities() {
+        return $this->availabilities;
+    }
+    /**
+     * Set the value of availability
+     * @param array
+     * @return self
+     */
+    public function setAvailabilities($availability) {
+        $this->availabilities = $availability;
+        return $this;
+    }
+    /**
+     * Removes a host
+     * @param Appbundle\Entity\Availability
+     * @return self
+     */
+    public function removeAvailabilities($availability) {
+        $this->availabilities->removeElement($availability);
+        return $this;
+    }
+    /**
+     * Adds a host
+     * @param Appbundle\Entity\Availability
+     * @return self
+     */
+    public function addAvailabilities($availability) {
+        $this->availabilities->add($availability);
+        return $this;
+    }
 }

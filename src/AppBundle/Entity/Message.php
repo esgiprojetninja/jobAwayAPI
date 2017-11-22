@@ -28,16 +28,16 @@ class Message
     protected $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Accomodation")
-     * @ORM\JoinColumn(name="accomodation_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Accomodation", cascade={"persist"})
+     * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
      */
-    protected $accomodation_id;
+    protected $accomodation;
 
     /**
-     * @ORM\OneToOne(targetEntity="Candidate")
-     * @ORM\JoinColumn(name="candidate_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Candidate", cascade={"persist"})
+     * @ORM\JoinColumn(name="candidate", referencedColumnName="id")
      */
-    protected $candidate_id;
+    protected $candidate;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
@@ -82,35 +82,73 @@ class Message
     }
 
     /**
-     * @return mixed
+     * Get the value of accomodation
+     * @return array
      */
-    public function getAccomodationId()
-    {
-        return $this->accomodation_id;
+    public function getAccomodation() {
+        return $this->accomodation;
+    }
+    /**
+     * Set the value of accomodation
+     * @param array
+     * @return self
+     */
+    public function setAccomodation($accomodation) {
+        $this->accomodation = $accomodation;
+        return $this;
+    }
+    /**
+     * Removes an accomodation
+     * @param Appbundle\Entity\Accomodation
+     * @return self
+     */
+    public function removeAccomodation($accomodation) {
+        $this->accomodation->removeElement($accomodation);
+        return $this;
+    }
+    /**
+     * Adds an accomodation
+     * @param Appbundle\Entity\Accomodation
+     * @return self
+     */
+    public function addAccomodation($accomodation) {
+        $this->accomodation->add($accomodation);
+        return $this;
     }
 
     /**
-     * @param mixed $accomodation_id
+     * Get the value of candidate
+     * @return array
      */
-    public function setAccomodationId($accomodation_id)
-    {
-        $this->accomodation_id = $accomodation_id;
+    public function getCandidate() {
+        return $this->candidate;
     }
-
     /**
-     * @return mixed
+     * Set the value of candidate
+     * @param array
+     * @return self
      */
-    public function getCandidateId()
-    {
-        return $this->candidate_id;
+    public function setAandidate($candidate) {
+        $this->candidate = $candidate;
+        return $this;
     }
-
     /**
-     * @param mixed $candidate_id
+     * Removes a candidate
+     * @param Appbundle\Entity\Candidate
+     * @return self
      */
-    public function setCandidateId($candidate_id)
-    {
-        $this->candidate_id = $candidate_id;
+    public function removeAandidate($candidate) {
+        $this->candidate->removeElement($candidate);
+        return $this;
+    }
+    /**
+     * Adds a candidate
+     * @param Appbundle\Entity\Candidate
+     * @return self
+     */
+    public function addCandidate($candidate) {
+        $this->candidate->add($candidate);
+        return $this;
     }
 
     /**

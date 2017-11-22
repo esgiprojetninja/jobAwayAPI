@@ -23,13 +23,13 @@ class Booking
     protected $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Accomodation")
+     * @ORM\OneToOne(targetEntity="Accomodation", cascade={"persist"})
      * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
      */
     protected $accommodation;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
      * @ORM\JoinColumn(name="traveller", referencedColumnName="id")
      */
     protected $traveller;

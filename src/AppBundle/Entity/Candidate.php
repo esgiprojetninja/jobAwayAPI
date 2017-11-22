@@ -23,13 +23,13 @@ class Candidate
     protected $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
      * @ORM\JoinColumn(name="user", referencedColumnName="id")
      */
     protected $user;
 
     /**
-     * @ORM\OneToOne(targetEntity="Accomodation")
+     * @ORM\OneToOne(targetEntity="Accomodation", cascade={"persist"})
      * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
      */
     protected $accomodation;
@@ -71,35 +71,73 @@ class Candidate
     }
 
     /**
-     * @return mixed
+     * Get the value of user
+     * @return array
      */
-    public function getUser()
-    {
+    public function getUser() {
         return $this->user;
     }
-
     /**
-     * @param mixed $user
+     * Set the value of host
+     * @param array
+     * @return self
      */
-    public function setUser($user)
-    {
+    public function setUser($user) {
         $this->user = $user;
+        return $this;
+    }
+    /**
+     * Removes a host
+     * @param Appbundle\Entity\User
+     * @return self
+     */
+    public function removeUser($user) {
+        $this->user->removeElement($user);
+        return $this;
+    }
+    /**
+     * Adds a host
+     * @param Appbundle\Entity\User
+     * @return self
+     */
+    public function addUser($user) {
+        $this->user->add($user);
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get the value of accomodation
+     * @return array
      */
-    public function getAccomodation()
-    {
+    public function getAccomodation() {
         return $this->accomodation;
     }
-
     /**
-     * @param mixed $accomodation
+     * Set the value of accomodation
+     * @param array
+     * @return self
      */
-    public function setAccomodation($accomodation)
-    {
+    public function setAccomodation($accomodation) {
         $this->accomodation = $accomodation;
+        return $this;
+    }
+    /**
+     * Removes an accomodation
+     * @param Appbundle\Entity\Accomodation
+     * @return self
+     */
+    public function removeAccomodation($accomodation) {
+        $this->accomodation->removeElement($accomodation);
+        return $this;
+    }
+    /**
+     * Adds an accomodation
+     * @param Appbundle\Entity\Accomodation
+     * @return self
+     */
+    public function addAccomodation($accomodation) {
+        $this->accomodation->add($accomodation);
+        return $this;
     }
 
     /**

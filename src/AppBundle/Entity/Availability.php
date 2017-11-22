@@ -33,12 +33,6 @@ class Availability
     protected $to;
 
     /**
-     * @ORM\OneToOne(targetEntity="Accomodation")
-     * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
-     */
-    protected $accomodation;
-
-    /**
      * @ORM\Column(name="created_at", type="datetime")
      */
     protected $created_at;
@@ -47,6 +41,4 @@ class Availability
      * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updated_at;
-
-
 }
