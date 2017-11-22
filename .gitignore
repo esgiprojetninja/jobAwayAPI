@@ -18,3 +18,4 @@
 /web/app_dev.php
 .idea/*
 *.php~
+app/DoctrineMigrations/*
