@@ -131,6 +131,8 @@ class AllFixtures extends Fixture
             $booking->setCheckoutDate($faker->dateTime);
             $booking->setCheckinDetails($faker->text);
             $booking->setCheckoutDetails($faker->text);
+            $booking->setNbPersons($faker->randomNumber());
+            $booking->setNbNights($faker->randomNumber());
             $booking->setAccommodation($accomodations[rand(0, 19)]);
             $booking->setTraveller($users[rand(0, 19)]);
             $bookings[] = $booking;
