@@ -129,10 +129,10 @@ api_platform:
         order_parameter_name: 'order'
         pagination:
             enabled: true
+            items_per_page: 30
             client_enabled: false
             client_items_per_page: false
-            items_per_page: 30
-            maximum_items_per_page: ~
+            maximum_items_per_page: 30
             page_parameter_name: 'page'
             enabled_parameter_name: 'pagination'
             items_per_page_parameter_name: 'itemsPerPage'
@@ -140,8 +140,8 @@ api_platform:
         paths: []
     http_cache:
         etag: true
-        max_age: ~
-        shared_max_age: ~
+        max_age: 300000
+        shared_max_age: 30000000
         vary: ['Accept']
         public: ~
         invalidation:
