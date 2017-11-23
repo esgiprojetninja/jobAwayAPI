@@ -17,15 +17,19 @@ class CandidatesFixtures extends Fixture
         $accomodations = $manager->getRepository(Accomodation::class)->findAll();
         $users = $manager->getRepository(User::class)->findAll();
 
+        $candidates = [];
         for ($i = 0; $i < 20; $i++) {
             $candidate = new Candidate();
-            $candidate->setUser($users[rand(0, 2)]);
-            $candidate->setAccomodation($accomodations[rand(0, 2)]);
-            /*if($this->checkDupe($candidate, $manager) === 1){
-                continue;
-            }*/
+            $user = $users[rand(0, 19)];
+            $candidate->setUser($user);
+            $accomodation = $accomodations[rand(0,19)];
+            $candidate->setAccomodation($accomodation);
             $candidate->setFromDate($faker->dateTime);
             $candidate->setToDate($faker->dateTime);
+            if(in_array($user->getId().$accomodation->getId(), $candidates)) {
+                continue;
+            }
+            $candidates[] = $user->getId().$accomodation->getId();
             $manager->persist($candidate);
         }
         $manager->flush();
@@ -38,16 +42,5 @@ class CandidatesFixtures extends Fixture
             AccomodationsFixtures::class,
         );
     }
-
-    /*public function checkDupe(Candidate $candidate, ObjectManager $manager) {
-        //Si pour l'id accomodation passé en paramètre il existe déjà un record avec l'id user de l'objet courrant alors retourne une exception
-        $accomodation = $manager->getRepository(Accomodation::class)->find($candidate->getAccomodation()->getId());
-            var_dump( $candidate->getUser()->getId() . " - " . $accomodation->getHost()->getId() ) ;
-        if($accomodation){
-            if ($candidate->getUser()->getId() == $accomodation->getHost()->getId()){
-                return 1;
-            }
-        }
-        return 0;
-    }*/
+    
 }
