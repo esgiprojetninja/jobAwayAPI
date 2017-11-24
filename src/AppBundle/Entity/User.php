@@ -78,12 +78,14 @@ class User
     /**
      * @ORM\Column(name="createdAt", type="datetime")
      * @Groups({"read", "write"})
+     * @Assert\DateTime()
      */
     protected $createdAt;
 
     /**
      * @ORM\Column(name="updatedAt", type="datetime")
      * @Groups({"read", "write"})
+     * @Assert\DateTime()
      */
     protected $updatedAt;
 

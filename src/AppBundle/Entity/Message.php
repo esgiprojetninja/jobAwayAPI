@@ -45,11 +45,13 @@ class Message
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
+     * @Assert\DateTime()
      */
     protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
+     * @Assert\DateTime()
      */
     protected $updatedAt;
 
