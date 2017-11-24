@@ -50,40 +50,28 @@ class User
     /**
      * @ORM\Column(name="last_name", type="string", length=255)
      * @Groups({"read", "write"})
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 30,
-     * )
+     * @Assert\NotBlank()
      */
     protected $lastName;
 
     /**
      * @ORM\Column(name="first_name", type="string", length=255)
      * @Groups({"read", "write"})
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 30,
-     * )
+     * @Assert\NotBlank()
      */
     protected $firstName;
 
     /**
      * @ORM\Column(name="languages", type="text")
      * @Groups({"read", "write"})
-     * @Assert\Length(
-     *      min = 1,
-     *      max = 255,
-     * )
+     * @Assert\NotBlank()
      */
     protected $languages;
 
     /**
      * @ORM\Column(name="skills", type="text")
      * @Groups({"read", "write"})
-     * @Assert\Length(
-     *      min = 1,
-     *      max = 255,
-     * )
+     * @Assert\NotBlank()
      */
     protected $skills;
 
