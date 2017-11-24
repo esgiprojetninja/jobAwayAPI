@@ -30,41 +30,49 @@ class Accommodation
 
     /**
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $title;
 
     /**
      * @ORM\Column(name="description", type="text")
+     * @Assert\NotBlank()
      */
     protected $description;
 
     /**
      * @ORM\Column(name="city", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $city;
 
     /**
      * @ORM\Column(name="region", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $region;
 
     /**
      * @ORM\Column(name="coutry", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $country;
 
     /**
      * @ORM\Column(name="address", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $address;
 
     /**
      * @ORM\Column(name="longitude", type="float")
+     * @Assert\NotBlank()
      */
     protected $longitude;
 
     /**
      * @ORM\Column(name="latitude", type="float")
+     * @Assert\NotBlank()
      */
     protected $latitude;
 
@@ -88,96 +96,115 @@ class Accommodation
 
     /**
      * @ORM\Column(name="nb_bedroom", type="integer")
+     * @Assert\NotBlank()
      */
     protected $nbBedroom;
 
     /**
      * @ORM\Column(name="nb_bathroom", type="integer")
+     * @Assert\NotBlank()
      */
     protected $nbBathroom;
 
     /**
      * @ORM\Column(name="nb_toilet", type="integer")
+     * @Assert\NotBlank()
      */
     protected $nbToilet;
 
     /**
      * @ORM\Column(name="nb_max_baby", type="integer")
+     * @Assert\NotBlank()
      */
     protected $nbMaxBaby;
 
     /**
      * @ORM\Column(name="nb_max_child", type="integer")
+     * @Assert\NotBlank()
      */
     protected $nbMaxChild;
 
     /**
      * @ORM\Column(name="nb_max_guest", type="integer")
+     * @Assert\NotBlank()
      */
     protected $nbMaxGuest;
 
     /**
      * @ORM\Column(name="nb_max_adult", type="integer")
+     * @Assert\NotBlank()
      */
     protected $nbMaxAdult;
 
     /**
      * @ORM\Column(name="animals_allowed", type="boolean")
+     * @Assert\NotBlank()
      */
     protected $animalsAllowed;
 
     /**
      * @ORM\Column(name="smokers_allowed", type="boolean")
+     * @Assert\NotBlank()
      */
     protected $smokersAllowed;
 
     /**
      * @ORM\Column(name="has_internet", type="boolean")
+     * @Assert\NotBlank()
      */
     protected $hasInternet;
 
     /**
      * @ORM\Column(name="property_size", type="float")
+     * @Assert\NotBlank()
      */
     protected $propertySize;
 
     /**
      * @ORM\Column(name="floor", type="integer")
+     * @Assert\NotBlank()
      */
     protected $floor;
 
     /**
      * @ORM\Column(name="min_stay", type="integer")
+     * @Assert\NotBlank()
      */
     protected $minStay;
 
     /**
      * @ORM\Column(name="max_stay", type="integer")
+     * @Assert\NotBlank()
      */
     protected $maxStay;
 
     /**
      * @ORM\Column(name="type", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $type;
 
     /**
      * @ORM\Column(name="checkin_hour", type="datetime")
+     * @Assert\Datetime()
      */
     protected $checkinHour;
 
     /**
      * @ORM\Column(name="checkout_hour", type="datetime")
+     * @Assert\Datetime()
      */
     protected $checkoutHour;
 
     /**
      * @ORM\Column(name="create_at", type="datetime")
+     * @Assert\Datetime()
      */
     protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
+     * @Assert\Datetime()
      */
     protected $updatedAt;
 
