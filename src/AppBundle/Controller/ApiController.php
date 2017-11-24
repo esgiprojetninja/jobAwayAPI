@@ -12,11 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 class ApiController extends FOSRestController
 {
     /**
-     * @Rest\Get("/")
+     * @Rest\Get("/api")
      */
     public function indexAction(Request $request)
     {
-        $data = ['hello' => 'api world'];
+        $data = ['hello' => 'api world route get'];
         $view = $this->view($data, Response::HTTP_OK);
         return $view;
     }

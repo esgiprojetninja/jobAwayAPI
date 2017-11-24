@@ -87,7 +87,7 @@ fos_rest:
             - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: false }
     param_fetcher_listener: true
     view:
-        view_response_listener: 'force'
+        view_response_listener: true
         formats:
             json: true
 
@@ -97,3 +97,68 @@ doctrine_migrations:
     table_name: migration_versions
     name: Application Migrations
     organize_migrations: false # Version >=1.2 Possible values are: "BY_YEAR", "BY_YEAR_AND_MONTH", false
+
+api_platform:
+    title: 'JobAwayAPI'
+    description: ''
+    version: '1.0.0'
+    name_converter: ~
+    path_segment_name_generator: 'api_platform.path_segment_name_generator.underscore'
+    eager_loading:
+        enabled: true
+        fetch_partial: false
+        max_joins: 30
+        force_eager: true
+    enable_fos_user: true # Enable the FOSUserBundle integration.
+    enable_nelmio_api_doc: true # Enable the Nelmio Api doc integration.
+    enable_swagger: true # Enable the Swagger documentation and export.
+    enable_swagger_ui: true # Enable Swagger ui.
+    oauth:
+        enabled: false
+        clientId: ''
+        clientSecret: ''
+        type: 'oauth2'
+        flow: 'application'
+        tokenUrl: '/oauth/v2/token'
+        authorizationUrl: '/oauth/v2/auth'
+        scopes: []
+    swagger:
+        api_keys: []
+    collection:
+        order: 'ASC'
+        order_parameter_name: 'order'
+        pagination:
+            enabled: true
+            items_per_page: 30
+            client_enabled: false
+            client_items_per_page: false
+            maximum_items_per_page: 30
+            page_parameter_name: 'page'
+            enabled_parameter_name: 'pagination'
+            items_per_page_parameter_name: 'itemsPerPage'
+    mapping:
+        paths: []
+    http_cache:
+        etag: true
+        max_age: 300000
+        shared_max_age: 30000000
+        vary: ['Accept']
+        public: ~
+        invalidation:
+          enabled: false
+          varnish_urls: []
+    exception_to_status:
+        Symfony\Component\Serializer\Exception\ExceptionInterface: 400
+        ApiPlatform\Core\Exception\InvalidArgumentException: !php/const:Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST
+    formats:
+        jsonld:
+            mime_types: ['application/ld+json']
+        json:
+            mime_types: ['application/json']
+        html:
+            mime_types: ['text/html']
+    error_formats:
+        jsonproblem:
+            mime_types: ['application/problem+json']
+        jsonld:
+            mime_types: ['application/ld+json']

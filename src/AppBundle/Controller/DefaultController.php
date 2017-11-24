@@ -12,11 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends FOSRestController
 {
     /**
-     * @Rest\Get("/")
+     * @Rest\Get("/default")
      */
     public function indexAction(Request $request)
     {
-        $data = ['hello' => 'world'];
+        $data = ['hello' => 'world default'];
         $view = $this->view($data, Response::HTTP_OK);
         return $view;
     }

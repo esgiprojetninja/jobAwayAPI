@@ -5,9 +5,11 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\User;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ORM\Entity
+ * @ApiResource
  * @ORM\Table(name="candidate")
  */
 class Candidate
