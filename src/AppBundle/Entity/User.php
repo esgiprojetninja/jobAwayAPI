@@ -4,65 +4,78 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity
- * @ApiResource
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"read"}},
+ *     "denormalization_context"={"groups"={"write"}}
+ * })
  * @ORM\Table(name="user")
  */
 class User
 {
     public function __construct() {
-        $this->updated_at = new \DateTime();
-        $this->created_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**
     * @ORM\Id
     * @ORM\Column(name="id", type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
+    * @Groups({"read"})
     */
     protected $id;
 
     /**
     * @ORM\Column(name="email", type="string", length=255)
+    * @Groups({"read"})
     */
     protected $email;
 
     /**
      * @ORM\Column(name="password", type="string", length=255)
+     * @Groups({"write"})
      */
     protected $password;
 
     /**
      * @ORM\Column(name="last_name", type="string", length=255)
+     * @Groups({"read", "write"})
      */
-    protected $last_name;
+    protected $lastName;
 
     /**
      * @ORM\Column(name="first_name", type="string", length=255)
+     * @Groups({"read", "write"})
      */
-    protected $first_name;
-
-    /**
-     * @ORM\Column(name="created_at", type="datetime")
-     */
-    protected $created_at;
-
-    /**
-     * @ORM\Column(name="updated_at", type="datetime")
-     */
-    protected $updated_at;
+    protected $firstName;
 
     /**
      * @ORM\Column(name="languages", type="text")
+     * @Groups({"read", "write"})
      */
     protected $languages;
 
     /**
      * @ORM\Column(name="skills", type="text")
+     * @Groups({"read", "write"})
      */
     protected $skills;
+
+    /**
+     * @ORM\Column(name="createdAt", type="datetime")
+     * @Groups({"read", "write"})
+     */
+    protected $createdAt;
+
+    /**
+     * @ORM\Column(name="updatedAt", type="datetime")
+     * @Groups({"read", "write"})
+     */
+    protected $updatedAt;
 
     /**
      * @return mixed
@@ -117,15 +130,15 @@ class User
      */
     public function getLastName()
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
     /**
-     * @param mixed $last_name
+     * @param mixed $lastName
      */
-    public function setLastName($last_name)
+    public function setLastName($lastName)
     {
-        $this->last_name = $last_name;
+        $this->lastName = $lastName;
     }
 
     /**
@@ -133,47 +146,15 @@ class User
      */
     public function getFirstName()
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
     /**
-     * @param mixed $first_name
+     * @param mixed $firstName
      */
-    public function setFirstName($first_name)
+    public function setFirstName($firstName)
     {
-        $this->first_name = $first_name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * @param mixed $created_at
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->created_at = $created_at;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
-    /**
-     * @param mixed $updated_at
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->updated_at = $updated_at;
+        $this->firstName = $firstName;
     }
 
     /**
@@ -208,5 +189,36 @@ class User
         $this->skills = $skills;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
 
 }

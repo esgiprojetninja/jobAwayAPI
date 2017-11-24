@@ -3,7 +3,7 @@
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\User;
-use AppBundle\Entity\Accomodation;
+use AppBundle\Entity\Accommodation;
 use AppBundle\Entity\Booking;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -14,7 +14,7 @@ class BookingsFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-        $accomodations = $manager->getRepository(Accomodation::class)->findAll();
+        $accommodations = $manager->getRepository(Accommodation::class)->findAll();
         $users = $manager->getRepository(User::class)->findAll();
 
         for ($i = 0; $i < 20; $i++) {
@@ -27,7 +27,7 @@ class BookingsFixtures extends Fixture
             $booking->setCheckoutDetails($faker->text);
             $booking->setNbPersons($faker->randomNumber());
             $booking->setNbNights($faker->randomNumber());
-            $booking->setAccommodation($accomodations[rand(0, 19)]);
+            $booking->setAccommodation($accommodations[rand(0, 19)]);
             $booking->setTraveller($users[rand(0, 19)]);
             $manager->persist($booking);
         }
@@ -38,7 +38,7 @@ class BookingsFixtures extends Fixture
     {
         return array(
             UsersFixtures::class,
-            AccomodationsFixtures::class,
+            AccommodationsFixtures::class,
         );
     }
 }

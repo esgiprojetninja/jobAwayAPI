@@ -2,7 +2,7 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use AppBundle\Entity\Accomodation;
+use AppBundle\Entity\Accommodation;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Candidate;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -14,7 +14,7 @@ class CandidatesFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-        $accomodations = $manager->getRepository(Accomodation::class)->findAll();
+        $accommodations = $manager->getRepository(Accommodation::class)->findAll();
         $users = $manager->getRepository(User::class)->findAll();
 
         $candidates = [];
@@ -22,14 +22,14 @@ class CandidatesFixtures extends Fixture
             $candidate = new Candidate();
             $user = $users[rand(0, 19)];
             $candidate->setUser($user);
-            $accomodation = $accomodations[rand(0,19)];
-            $candidate->setAccomodation($accomodation);
+            $accommodation = $accommodations[rand(0,19)];
+            $candidate->setAccommodation($accommodation);
             $candidate->setFromDate($faker->dateTime);
             $candidate->setToDate($faker->dateTime);
-            if(in_array($user->getId().$accomodation->getId(), $candidates)) {
+            if(in_array($user->getId().$accommodation->getId(), $candidates)) {
                 continue;
             }
-            $candidates[] = $user->getId().$accomodation->getId();
+            $candidates[] = $user->getId().$accommodation->getId();
             $manager->persist($candidate);
         }
         $manager->flush();
@@ -39,7 +39,7 @@ class CandidatesFixtures extends Fixture
     {
         return array(
             UsersFixtures::class,
-            AccomodationsFixtures::class,
+            AccommodationsFixtures::class,
         );
     }
     

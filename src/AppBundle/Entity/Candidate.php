@@ -15,8 +15,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 class Candidate
 {
     public function __construct() {
-        $this->updated_at = new \DateTime();
-        $this->created_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -33,30 +33,30 @@ class Candidate
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Accomodation", cascade={"persist"})
-     * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Accommodation", cascade={"persist"})
+     * @ORM\JoinColumn(name="accommodation", referencedColumnName="id")
      */
-    protected $accomodation;
+    protected $accommodation;
 
     /**
      * @ORM\Column(name="from_date", type="datetime")
      */
-    protected $from_date;
+    protected $fromDate;
 
     /**
      * @ORM\Column(name="to_date", type="datetime")
      */
-    protected $to_date;
+    protected $toDate;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
      */
-    protected $created_at;
+    protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
      */
-    protected $updated_at;
+    protected $updatedAt;
 
     /**
      * Get id
@@ -67,103 +67,6 @@ class Candidate
     {
         return $this->id;
     }
-
-    /**
-     * Set fromDate
-     *
-     * @param \DateTime $fromDate
-     *
-     * @return Candidate
-     */
-    public function setFromDate($fromDate)
-    {
-        $this->from_date = $fromDate;
-
-        return $this;
-    }
-
-    /**
-     * Get fromDate
-     *
-     * @return \DateTime
-     */
-    public function getFromDate()
-    {
-        return $this->from_date;
-    }
-
-    /**
-     * Set toDate
-     *
-     * @param \DateTime $toDate
-     *
-     * @return Candidate
-     */
-    public function setToDate($toDate)
-    {
-        $this->to_date = $toDate;
-
-        return $this;
-    }
-
-    /**
-     * Get toDate
-     *
-     * @return \DateTime
-     */
-    public function getToDate()
-    {
-        return $this->to_date;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Candidate
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Candidate
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updated_at = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
 
     /**
      * Add user
@@ -200,27 +103,27 @@ class Candidate
     }
 
     /**
-     * Set accomodation
+     * Set accommodation
      *
-     * @param \AppBundle\Entity\Accomodation $accomodation
+     * @param \AppBundle\Entity\Accommodation $accommodation
      *
      * @return Candidate
      */
-    public function setAccomodation(\AppBundle\Entity\Accomodation $accomodation = null)
+    public function setAccommodation(\AppBundle\Entity\Accommodation $accommodation = null)
     {
-        $this->accomodation = $accomodation;
+        $this->accommodation = $accommodation;
 
         return $this;
     }
 
     /**
-     * Get accomodation
+     * Get accommodation
      *
-     * @return \AppBundle\Entity\Accomodation
+     * @return \AppBundle\Entity\Accommodation
      */
-    public function getAccomodation()
+    public function getAccommodation()
     {
-        return $this->accomodation;
+        return $this->accommodation;
     }
 
     /**
@@ -235,5 +138,69 @@ class Candidate
         $this->user = $user;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFromDate()
+    {
+        return $this->fromDate;
+    }
+
+    /**
+     * @param mixed $fromDate
+     */
+    public function setFromDate($fromDate)
+    {
+        $this->fromDate = $fromDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToDate()
+    {
+        return $this->toDate;
+    }
+
+    /**
+     * @param mixed $toDate
+     */
+    public function setToDate($toDate)
+    {
+        $this->toDate = $toDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
     }
 }

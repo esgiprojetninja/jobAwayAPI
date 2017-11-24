@@ -13,8 +13,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 class Availability
 {
     public function __construct() {
-        $this->updated_at = new \DateTime();
-        $this->created_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -27,22 +27,22 @@ class Availability
     /**
      * @ORM\Column(name="from_date", type="datetime")
      */
-    protected $from_date;
+    protected $fromDate;
 
     /**
      * @ORM\Column(name="to_date", type="datetime")
      */
-    protected $to_date;
+    protected $toDate;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
      */
-    protected $created_at;
+    protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
      */
-    protected $updated_at;
+    protected $updatedAt;
 
     /**
      * @return mixed
@@ -65,15 +65,15 @@ class Availability
      */
     public function getFromDate()
     {
-        return $this->from_date;
+        return $this->fromDate;
     }
 
     /**
-     * @param mixed $from_date
+     * @param mixed $fromDate
      */
-    public function setFromDate($from_date)
+    public function setFromDate($fromDate)
     {
-        $this->from_date = $from_date;
+        $this->fromDate = $fromDate;
     }
 
     /**
@@ -81,15 +81,15 @@ class Availability
      */
     public function getToDate()
     {
-        return $this->to_date;
+        return $this->toDate;
     }
 
     /**
-     * @param mixed $to_date
+     * @param mixed $toDate
      */
-    public function setToDate($to_date)
+    public function setToDate($toDate)
     {
-        $this->to_date = $to_date;
+        $this->toDate = $toDate;
     }
 
     /**
@@ -97,15 +97,15 @@ class Availability
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
-     * @param mixed $created_at
+     * @param mixed $createdAt
      */
-    public function setCreatedAt($created_at)
+    public function setCreatedAt($createdAt)
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
     }
 
     /**
@@ -113,16 +113,14 @@ class Availability
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
     /**
-     * @param mixed $updated_at
+     * @param mixed $updatedAt
      */
-    public function setUpdatedAt($updated_at)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->updated_at = $updated_at;
+        $this->updatedAt = $updatedAt;
     }
-
-
 }

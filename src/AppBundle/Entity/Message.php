@@ -13,8 +13,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 class Message
 {
     public function __construct() {
-        $this->updated_at = new \DateTime();
-        $this->created_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -30,10 +30,10 @@ class Message
     protected $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Accomodation", cascade={"persist"})
-     * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Accommodation", cascade={"persist"})
+     * @ORM\JoinColumn(name="accommodation", referencedColumnName="id")
      */
-    protected $accomodation;
+    protected $accommodation;
 
     /**
      * @ORM\ManyToOne(targetEntity="Candidate", cascade={"persist"})
@@ -44,12 +44,12 @@ class Message
     /**
      * @ORM\Column(name="created_at", type="datetime")
      */
-    protected $created_at;
+    protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
      */
-    protected $updated_at;
+    protected $updatedAt;
 
 
     /**
@@ -87,75 +87,27 @@ class Message
     }
 
     /**
-     * Set createdAt
+     * Set accommodation
      *
-     * @param \DateTime $createdAt
+     * @param \AppBundle\Entity\Accommodation $accommodation
      *
      * @return Message
      */
-    public function setCreatedAt($createdAt)
+    public function setAccommodation(\AppBundle\Entity\Accommodation $accommodation = null)
     {
-        $this->created_at = $createdAt;
+        $this->accommodation = $accommodation;
 
         return $this;
     }
 
     /**
-     * Get createdAt
+     * Get accommodation
      *
-     * @return \DateTime
+     * @return \AppBundle\Entity\Accommodation
      */
-    public function getCreatedAt()
+    public function getAccommodation()
     {
-        return $this->created_at;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Message
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updated_at = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
-    /**
-     * Set accomodation
-     *
-     * @param \AppBundle\Entity\Accomodation $accomodation
-     *
-     * @return Message
-     */
-    public function setAccomodation(\AppBundle\Entity\Accomodation $accomodation = null)
-    {
-        $this->accomodation = $accomodation;
-
-        return $this;
-    }
-
-    /**
-     * Get accomodation
-     *
-     * @return \AppBundle\Entity\Accomodation
-     */
-    public function getAccomodation()
-    {
-        return $this->accomodation;
+        return $this->accommodation;
     }
 
     /**
@@ -180,5 +132,37 @@ class Message
     public function getCandidate()
     {
         return $this->candidate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
     }
 }

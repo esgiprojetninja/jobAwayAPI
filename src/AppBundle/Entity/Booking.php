@@ -13,8 +13,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 class Booking
 {
     public function __construct() {
-        $this->updated_at = new \DateTime();
-        $this->created_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -25,8 +25,8 @@ class Booking
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Accomodation", cascade={"persist"})
-     * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Accommodation", cascade={"persist"})
+     * @ORM\JoinColumn(name="accommodation", referencedColumnName="id")
      */
     protected $accommodation;
 
@@ -39,312 +39,61 @@ class Booking
     /**
      * @ORM\Column(name="checkin_date", type="datetime")
      */
-    protected $checkin_date;
+    protected $checkinDate;
 
     /**
      * @ORM\Column(name="checkout_date", type="datetime")
      */
-    protected $checkout_date;
+    protected $checkoutDate;
 
     /**
      * @ORM\Column(name="checkin_hour", type="string", length=255)
      */
-    protected $checkin_hour;
+    protected $checkinHour;
 
     /**
      * @ORM\Column(name="checkout_hour", type="string", length=255)
      */
-    protected $checkout_hour;
+    protected $checkoutHour;
 
     /**
      * @ORM\Column(name="checkin_details", type="string", length=255)
      */
-    protected $checkin_details;
+    protected $checkinDetails;
 
     /**
      * @ORM\Column(name="checkout_details", type="string", length=255)
      */
-    protected $checkout_details;
+    protected $checkoutDetails;
 
     /**
      * @ORM\Column(name="nb_nights", type="integer")
      */
-    protected $nb_nights;
+    protected $nbNights;
 
     /**
      * @ORM\Column(name="nb_persons", type="integer")
      */
-    protected $nb_persons;
+    protected $nbPersons;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
      */
-    protected $created_at;
+    protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
      */
-    protected $updated_at;
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set checkinDate
-     *
-     * @param \DateTime $checkinDate
-     *
-     * @return Booking
-     */
-    public function setCheckinDate($checkinDate)
-    {
-        $this->checkin_date = $checkinDate;
-
-        return $this;
-    }
-
-    /**
-     * Get checkinDate
-     *
-     * @return \DateTime
-     */
-    public function getCheckinDate()
-    {
-        return $this->checkin_date;
-    }
-
-    /**
-     * Set checkoutDate
-     *
-     * @param \DateTime $checkoutDate
-     *
-     * @return Booking
-     */
-    public function setCheckoutDate($checkoutDate)
-    {
-        $this->checkout_date = $checkoutDate;
-
-        return $this;
-    }
-
-    /**
-     * Get checkoutDate
-     *
-     * @return \DateTime
-     */
-    public function getCheckoutDate()
-    {
-        return $this->checkout_date;
-    }
-
-    /**
-     * Set checkinHour
-     *
-     * @param string $checkinHour
-     *
-     * @return Booking
-     */
-    public function setCheckinHour($checkinHour)
-    {
-        $this->checkin_hour = $checkinHour;
-
-        return $this;
-    }
-
-    /**
-     * Get checkinHour
-     *
-     * @return string
-     */
-    public function getCheckinHour()
-    {
-        return $this->checkin_hour;
-    }
-
-    /**
-     * Set checkoutHour
-     *
-     * @param string $checkoutHour
-     *
-     * @return Booking
-     */
-    public function setCheckoutHour($checkoutHour)
-    {
-        $this->checkout_hour = $checkoutHour;
-
-        return $this;
-    }
-
-    /**
-     * Get checkoutHour
-     *
-     * @return string
-     */
-    public function getCheckoutHour()
-    {
-        return $this->checkout_hour;
-    }
-
-    /**
-     * Set checkinDetails
-     *
-     * @param string $checkinDetails
-     *
-     * @return Booking
-     */
-    public function setCheckinDetails($checkinDetails)
-    {
-        $this->checkin_details = $checkinDetails;
-
-        return $this;
-    }
-
-    /**
-     * Get checkinDetails
-     *
-     * @return string
-     */
-    public function getCheckinDetails()
-    {
-        return $this->checkin_details;
-    }
-
-    /**
-     * Set checkoutDetails
-     *
-     * @param string $checkoutDetails
-     *
-     * @return Booking
-     */
-    public function setCheckoutDetails($checkoutDetails)
-    {
-        $this->checkout_details = $checkoutDetails;
-
-        return $this;
-    }
-
-    /**
-     * Get checkoutDetails
-     *
-     * @return string
-     */
-    public function getCheckoutDetails()
-    {
-        return $this->checkout_details;
-    }
-
-    /**
-     * Set nbNights
-     *
-     * @param integer $nbNights
-     *
-     * @return Booking
-     */
-    public function setNbNights($nbNights)
-    {
-        $this->nb_nights = $nbNights;
-
-        return $this;
-    }
-
-    /**
-     * Get nbNights
-     *
-     * @return integer
-     */
-    public function getNbNights()
-    {
-        return $this->nb_nights;
-    }
-
-    /**
-     * Set nbPersons
-     *
-     * @param integer $nbPersons
-     *
-     * @return Booking
-     */
-    public function setNbPersons($nbPersons)
-    {
-        $this->nb_persons = $nbPersons;
-
-        return $this;
-    }
-
-    /**
-     * Get nbPersons
-     *
-     * @return integer
-     */
-    public function getNbPersons()
-    {
-        return $this->nb_persons;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Booking
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Booking
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updated_at = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
+    protected $updatedAt;
 
     /**
      * Set accommodation
      *
-     * @param \AppBundle\Entity\Accomodation $accommodation
+     * @param \AppBundle\Entity\Accommodation $accommodation
      *
      * @return Booking
      */
-    public function setAccommodation(\AppBundle\Entity\Accomodation $accommodation = null)
+    public function setAccommodation(\AppBundle\Entity\Accommodation $accommodation = null)
     {
         $this->accommodation = $accommodation;
 
@@ -354,7 +103,7 @@ class Booking
     /**
      * Get accommodation
      *
-     * @return \AppBundle\Entity\Accomodation
+     * @return \AppBundle\Entity\Accommodation
      */
     public function getAccommodation()
     {
@@ -383,5 +132,181 @@ class Booking
     public function getTraveller()
     {
         return $this->traveller;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCheckinDate()
+    {
+        return $this->checkinDate;
+    }
+
+    /**
+     * @param mixed $checkinDate
+     */
+    public function setCheckinDate($checkinDate)
+    {
+        $this->checkinDate = $checkinDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCheckoutDate()
+    {
+        return $this->checkoutDate;
+    }
+
+    /**
+     * @param mixed $checkoutDate
+     */
+    public function setCheckoutDate($checkoutDate)
+    {
+        $this->checkoutDate = $checkoutDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCheckinHour()
+    {
+        return $this->checkinHour;
+    }
+
+    /**
+     * @param mixed $checkinHour
+     */
+    public function setCheckinHour($checkinHour)
+    {
+        $this->checkinHour = $checkinHour;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCheckoutHour()
+    {
+        return $this->checkoutHour;
+    }
+
+    /**
+     * @param mixed $checkoutHour
+     */
+    public function setCheckoutHour($checkoutHour)
+    {
+        $this->checkoutHour = $checkoutHour;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCheckinDetails()
+    {
+        return $this->checkinDetails;
+    }
+
+    /**
+     * @param mixed $checkinDetails
+     */
+    public function setCheckinDetails($checkinDetails)
+    {
+        $this->checkinDetails = $checkinDetails;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCheckoutDetails()
+    {
+        return $this->checkoutDetails;
+    }
+
+    /**
+     * @param mixed $checkoutDetails
+     */
+    public function setCheckoutDetails($checkoutDetails)
+    {
+        $this->checkoutDetails = $checkoutDetails;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbNights()
+    {
+        return $this->nbNights;
+    }
+
+    /**
+     * @param mixed $nbNights
+     */
+    public function setNbNights($nbNights)
+    {
+        $this->nbNights = $nbNights;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbPersons()
+    {
+        return $this->nbPersons;
+    }
+
+    /**
+     * @param mixed $nbPersons
+     */
+    public function setNbPersons($nbPersons)
+    {
+        $this->nbPersons = $nbPersons;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
     }
 }
