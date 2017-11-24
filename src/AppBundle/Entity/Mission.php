@@ -9,9 +9,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ApiResource
- * @ORM\Table(name="booking")
+ * @ORM\Table(name="mission")
  */
-class Booking
+class Mission
 {
     public function __construct() {
         $this->updatedAt = new \DateTime();
@@ -86,6 +86,24 @@ class Booking
     protected $nbPersons;
 
     /**
+     * @ORM\Column(name="is_booked", type="boolean")
+     * @Assert\NotBlank()
+     */
+    protected $isBooked;
+
+    /**
+     * @ORM\Column(name="description", type="text")
+     * @Assert\NotBlank()
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     * @Assert\NotBlank()
+     */
+    protected $isActive;
+
+    /**
      * @ORM\Column(name="created_at", type="datetime")
      * @Assert\DateTime()
      */
@@ -102,7 +120,7 @@ class Booking
      *
      * @param \AppBundle\Entity\Accommodation $accommodation
      *
-     * @return Booking
+     * @return Mission
      */
     public function setAccommodation(\AppBundle\Entity\Accommodation $accommodation = null)
     {
@@ -126,7 +144,7 @@ class Booking
      *
      * @param \AppBundle\Entity\User $traveller
      *
-     * @return Booking
+     * @return Mission
      */
     public function setTraveller(\AppBundle\Entity\User $traveller = null)
     {
@@ -276,6 +294,38 @@ class Booking
     /**
      * @return mixed
      */
+    public function getisBooked()
+    {
+        return $this->isBooked;
+    }
+
+    /**
+     * @param mixed $isBooked
+     */
+    public function setIsBooked($isBooked)
+    {
+        $this->isBooked = $isBooked;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getNbPersons()
     {
         return $this->nbPersons;
@@ -287,6 +337,22 @@ class Booking
     public function setNbPersons($nbPersons)
     {
         $this->nbPersons = $nbPersons;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
     /**

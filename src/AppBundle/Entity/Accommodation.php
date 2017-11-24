@@ -186,25 +186,25 @@ class Accommodation
 
     /**
      * @ORM\Column(name="checkin_hour", type="datetime")
-     * @Assert\Datetime()
+     * @Assert\DateTime()
      */
     protected $checkinHour;
 
     /**
      * @ORM\Column(name="checkout_hour", type="datetime")
-     * @Assert\Datetime()
+     * @Assert\DateTime()
      */
     protected $checkoutHour;
 
     /**
      * @ORM\Column(name="create_at", type="datetime")
-     * @Assert\Datetime()
+     * @Assert\DateTime()
      */
     protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
-     * @Assert\Datetime()
+     * @Assert\DateTime()
      */
     protected $updatedAt;
 
