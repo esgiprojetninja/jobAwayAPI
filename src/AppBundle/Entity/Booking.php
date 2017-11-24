@@ -32,7 +32,7 @@ class Booking
 
     /**
      * @ORM\ManyToOne(targetEntity="User", cascade={"persist"})
-     * @ORM\JoinColumn(name="traveller", referencedColumnName="id")
+     * @ORM\JoinColumn(name="traveller", referencedColumnName="id", onDelete="SET NULL")
      */
     protected $traveller;
 

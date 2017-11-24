@@ -81,7 +81,7 @@ class Accommodation
 
     /**
      * @ORM\ManyToOne(targetEntity="User", cascade={"persist"})
-     * @ORM\JoinColumn(name="host", referencedColumnName="id")
+     * @ORM\JoinColumn(name="host", referencedColumnName="id", onDelete="SET NULL")
      */
     protected $host;
 
