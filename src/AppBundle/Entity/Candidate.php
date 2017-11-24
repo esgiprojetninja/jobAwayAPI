@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\User;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -40,21 +41,25 @@ class Candidate
 
     /**
      * @ORM\Column(name="from_date", type="datetime")
+     * @Assert\DateTime()
      */
     protected $fromDate;
 
     /**
      * @ORM\Column(name="to_date", type="datetime")
+     * @Assert\DateTime()
      */
     protected $toDate;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
+     * @Assert\DateTime()
      */
     protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
+     * @Assert\DateTime()
      */
     protected $updatedAt;
 

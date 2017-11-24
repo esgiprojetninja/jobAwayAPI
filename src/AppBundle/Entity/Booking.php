@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -38,51 +39,61 @@ class Booking
 
     /**
      * @ORM\Column(name="checkin_date", type="datetime")
+     * @Assert\DateTime()
      */
     protected $checkinDate;
 
     /**
      * @ORM\Column(name="checkout_date", type="datetime")
+     * @Assert\DateTime()
      */
     protected $checkoutDate;
 
     /**
      * @ORM\Column(name="checkin_hour", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $checkinHour;
 
     /**
      * @ORM\Column(name="checkout_hour", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $checkoutHour;
 
     /**
      * @ORM\Column(name="checkin_details", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $checkinDetails;
 
     /**
      * @ORM\Column(name="checkout_details", type="string", length=255)
+     * @Assert\NotBlank()
      */
     protected $checkoutDetails;
 
     /**
      * @ORM\Column(name="nb_nights", type="integer")
+     * @Assert\NotBlank()
      */
     protected $nbNights;
 
     /**
      * @ORM\Column(name="nb_persons", type="integer")
+     * @Assert\NotBlank()
      */
     protected $nbPersons;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
+     * @Assert\DateTime()
      */
     protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
+     * @Assert\DateTime()
      */
     protected $updatedAt;
 

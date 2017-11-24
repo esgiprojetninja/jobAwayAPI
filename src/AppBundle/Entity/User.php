@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -32,48 +33,59 @@ class User
     /**
     * @ORM\Column(name="email", type="string", length=255)
     * @Groups({"read"})
+    * @Assert\Email
     */
     protected $email;
 
     /**
      * @ORM\Column(name="password", type="string", length=255)
      * @Groups({"write"})
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 20,
+     * )
      */
     protected $password;
 
     /**
      * @ORM\Column(name="last_name", type="string", length=255)
      * @Groups({"read", "write"})
+     * @Assert\NotBlank()
      */
     protected $lastName;
 
     /**
      * @ORM\Column(name="first_name", type="string", length=255)
      * @Groups({"read", "write"})
+     * @Assert\NotBlank()
      */
     protected $firstName;
 
     /**
      * @ORM\Column(name="languages", type="text")
      * @Groups({"read", "write"})
+     * @Assert\NotBlank()
      */
     protected $languages;
 
     /**
      * @ORM\Column(name="skills", type="text")
      * @Groups({"read", "write"})
+     * @Assert\NotBlank()
      */
     protected $skills;
 
     /**
      * @ORM\Column(name="createdAt", type="datetime")
      * @Groups({"read", "write"})
+     * @Assert\DateTime()
      */
     protected $createdAt;
 
     /**
      * @ORM\Column(name="updatedAt", type="datetime")
      * @Groups({"read", "write"})
+     * @Assert\DateTime()
      */
     protected $updatedAt;
 

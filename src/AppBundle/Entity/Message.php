@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -26,6 +27,7 @@ class Message
 
     /**
      * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank()
      */
     protected $content;
 
@@ -43,11 +45,13 @@ class Message
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
+     * @Assert\DateTime()
      */
     protected $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
+     * @Assert\DateTime()
      */
     protected $updatedAt;
 
