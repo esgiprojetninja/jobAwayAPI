@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiProperty;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -13,6 +14,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Picture
 {
+    /**
+     * Picture constructor.
+     */
     public function __construct() {
         $this->updatedAt = new \DateTime();
         $this->createdAt = new \DateTime();
@@ -28,6 +32,14 @@ class Picture
     /**
      * @ORM\Column(name="url", type="text")
      * @Assert\Url()
+     * @ApiProperty(
+     *     attributes={
+     *         "swagger_context"={
+     *             "type"="text",
+     *             "example"="https://lorempixel.com/640/480/?48387"
+     *         }
+     *     }
+     * )
      */
     protected $url;
 
