@@ -4,10 +4,14 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity
- * @ApiResource
+ * @ApiResource(attributes={
+ *     "normalization_context"={"groups"={"read"}},
+ *     "denormalization_context"={"groups"={"write"}}
+ * })
  * @ORM\Table(name="user")
  */
 class User
@@ -21,46 +25,55 @@ class User
     * @ORM\Id
     * @ORM\Column(name="id", type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
+    * @Groups({"read"})
     */
     protected $id;
 
     /**
     * @ORM\Column(name="email", type="string", length=255)
+    * @Groups({"read"})
     */
     protected $email;
 
     /**
      * @ORM\Column(name="password", type="string", length=255)
+     * @Groups({"write"})
      */
     protected $password;
 
     /**
      * @ORM\Column(name="last_name", type="string", length=255)
+     * @Groups({"read"})
      */
     protected $last_name;
 
     /**
      * @ORM\Column(name="first_name", type="string", length=255)
+     * @Groups({"read"})
      */
     protected $first_name;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
+     * @Groups({"read"})
      */
     protected $created_at;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
+     * @Groups({"read"})
      */
     protected $updated_at;
 
     /**
      * @ORM\Column(name="languages", type="text")
+     * @Groups({"read"})
      */
     protected $languages;
 
     /**
      * @ORM\Column(name="skills", type="text")
+     * @Groups({"read"})
      */
     protected $skills;
 
