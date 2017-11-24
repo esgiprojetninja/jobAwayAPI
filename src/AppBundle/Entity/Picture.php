@@ -27,6 +27,7 @@ class Picture
 
     /**
      * @ORM\Column(name="url", type="text")
+     * @Assert\Url()
      */
     protected $url;
 
