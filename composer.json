@@ -15,7 +15,6 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "api-platform/api-platform": "2.1",
         "api-platform/core": "dev-master",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^1.0",
