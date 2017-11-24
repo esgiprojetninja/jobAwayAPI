@@ -17,8 +17,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class User
 {
     public function __construct() {
-        $this->updated_at = new \DateTime();
-        $this->created_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -54,18 +54,6 @@ class User
     protected $firstName;
 
     /**
-     * @ORM\Column(name="createdAt", type="datetime")
-     * @Groups({"read", "write"})
-     */
-    protected $createdAt;
-
-    /**
-     * @ORM\Column(name="updatedAt", type="datetime")
-     * @Groups({"read", "write"})
-     */
-    protected $updatedAt;
-
-    /**
      * @ORM\Column(name="languages", type="text")
      * @Groups({"read", "write"})
      */
@@ -76,6 +64,18 @@ class User
      * @Groups({"read", "write"})
      */
     protected $skills;
+
+    /**
+     * @ORM\Column(name="createdAt", type="datetime")
+     * @Groups({"read", "write"})
+     */
+    protected $createdAt;
+
+    /**
+     * @ORM\Column(name="updatedAt", type="datetime")
+     * @Groups({"read", "write"})
+     */
+    protected $updatedAt;
 
     /**
      * @return mixed
@@ -189,5 +189,36 @@ class User
         $this->skills = $skills;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
 
 }

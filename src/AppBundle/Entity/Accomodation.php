@@ -16,8 +16,8 @@ class Accomodation
     public function __construct() {
         $this->pictures = new ArrayCollection();
         $this->availabilities = new ArrayCollection();
-        $this->updated_at = new \DateTime();
-        $this->created_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -86,59 +86,59 @@ class Accomodation
     protected $host;
 
     /**
-     * @ORM\Column(name="nb_bedroom", type="integer")
+     * @ORM\Column(name="nbBedroom", type="integer")
      */
-    protected $nb_bedroom;
+    protected $nbBedroom;
 
     /**
-     * @ORM\Column(name="nb_bathroom", type="integer")
+     * @ORM\Column(name="nbBathroom", type="integer")
      */
-    protected $nb_bathroom;
+    protected $nbBathroom;
 
     /**
-     * @ORM\Column(name="nb_toilet", type="integer")
+     * @ORM\Column(name="nbToilet", type="integer")
      */
-    protected $nb_toilet;
+    protected $nbToilet;
 
     /**
-     * @ORM\Column(name="nb_max_baby", type="integer")
+     * @ORM\Column(name="nbMaxBaby", type="integer")
      */
-    protected $nb_max_baby;
+    protected $nbMaxBaby;
 
     /**
-     * @ORM\Column(name="nb_max_child", type="integer")
+     * @ORM\Column(name="nbMaxChild", type="integer")
      */
-    protected $nb_max_child;
+    protected $nbMaxChild;
 
     /**
-     * @ORM\Column(name="nb_max_guest", type="integer")
+     * @ORM\Column(name="nbMaxGuest", type="integer")
      */
-    protected $nb_max_guest;
+    protected $nbMaxGuest;
 
     /**
-     * @ORM\Column(name="nb_max_adult", type="integer")
+     * @ORM\Column(name="nbMaxAdult", type="integer")
      */
-    protected $nb_max_adult;
+    protected $nbMaxAdult;
 
     /**
-     * @ORM\Column(name="animals_allowed", type="boolean")
+     * @ORM\Column(name="animalsAllowed", type="boolean")
      */
-    protected $animals_allowed;
+    protected $animalsAllowed;
 
     /**
-     * @ORM\Column(name="smokers_allowed", type="boolean")
+     * @ORM\Column(name="smokersAllowed", type="boolean")
      */
-    protected $smokers_allowed;
+    protected $smokersAllowed;
 
     /**
-     * @ORM\Column(name="has_internet", type="boolean")
+     * @ORM\Column(name="hasInternet", type="boolean")
      */
-    protected $has_internet;
+    protected $hasInternet;
 
     /**
-     * @ORM\Column(name="property_size", type="float")
+     * @ORM\Column(name="propertySize", type="float")
      */
-    protected $property_size;
+    protected $propertySize;
 
     /**
      * @ORM\Column(name="floor", type="integer")
@@ -146,14 +146,14 @@ class Accomodation
     protected $floor;
 
     /**
-     * @ORM\Column(name="min_stay", type="integer")
+     * @ORM\Column(name="minStay", type="integer")
      */
-    protected $min_stay;
+    protected $minStay;
 
     /**
-     * @ORM\Column(name="max_stay", type="integer")
+     * @ORM\Column(name="maxStay", type="integer")
      */
-    protected $max_stay;
+    protected $maxStay;
 
     /**
      * @ORM\Column(name="type", type="string", length=255)
@@ -161,24 +161,24 @@ class Accomodation
     protected $type;
 
     /**
-     * @ORM\Column(name="checkin_hour", type="datetime")
+     * @ORM\Column(name="checkinHour", type="datetime")
      */
-    protected $checkin_hour;
+    protected $checkinHour;
 
     /**
-     * @ORM\Column(name="checkout_hour", type="datetime")
+     * @ORM\Column(name="checkoutHour", type="datetime")
      */
-    protected $checkout_hour;
+    protected $checkoutHour;
 
     /**
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(name="createdAt", type="datetime")
      */
-    protected $created_at;
+    protected $createdAt;
 
     /**
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updatedAt", type="datetime")
      */
-    protected $updated_at;
+    protected $updatedAt;
 
 
     /**
@@ -367,343 +367,6 @@ class Accomodation
         $this->latitude = $latitude;
     }
 
-
-    /**
-     * Set nbBedroom
-     *
-     * @param integer $nbBedroom
-     *
-     * @return Accomodation
-     */
-    public function setNbBedroom($nbBedroom)
-    {
-        $this->nb_bedroom = $nbBedroom;
-
-        return $this;
-    }
-
-    /**
-     * Get nbBedroom
-     *
-     * @return integer
-     */
-    public function getNbBedroom()
-    {
-        return $this->nb_bedroom;
-    }
-
-    /**
-     * Set nbBathroom
-     *
-     * @param integer $nbBathroom
-     *
-     * @return Accomodation
-     */
-    public function setNbBathroom($nbBathroom)
-    {
-        $this->nb_bathroom = $nbBathroom;
-
-        return $this;
-    }
-
-    /**
-     * Get nbBathroom
-     *
-     * @return integer
-     */
-    public function getNbBathroom()
-    {
-        return $this->nb_bathroom;
-    }
-
-    /**
-     * Set nbToilet
-     *
-     * @param integer $nbToilet
-     *
-     * @return Accomodation
-     */
-    public function setNbToilet($nbToilet)
-    {
-        $this->nb_toilet = $nbToilet;
-
-        return $this;
-    }
-
-    /**
-     * Get nbToilet
-     *
-     * @return integer
-     */
-    public function getNbToilet()
-    {
-        return $this->nb_toilet;
-    }
-
-    /**
-     * Set nbMaxBaby
-     *
-     * @param integer $nbMaxBaby
-     *
-     * @return Accomodation
-     */
-    public function setNbMaxBaby($nbMaxBaby)
-    {
-        $this->nb_max_baby = $nbMaxBaby;
-
-        return $this;
-    }
-
-    /**
-     * Get nbMaxBaby
-     *
-     * @return integer
-     */
-    public function getNbMaxBaby()
-    {
-        return $this->nb_max_baby;
-    }
-
-    /**
-     * Set nbMaxChild
-     *
-     * @param integer $nbMaxChild
-     *
-     * @return Accomodation
-     */
-    public function setNbMaxChild($nbMaxChild)
-    {
-        $this->nb_max_child = $nbMaxChild;
-
-        return $this;
-    }
-
-    /**
-     * Get nbMaxChild
-     *
-     * @return integer
-     */
-    public function getNbMaxChild()
-    {
-        return $this->nb_max_child;
-    }
-
-    /**
-     * Set nbMaxGuest
-     *
-     * @param integer $nbMaxGuest
-     *
-     * @return Accomodation
-     */
-    public function setNbMaxGuest($nbMaxGuest)
-    {
-        $this->nb_max_guest = $nbMaxGuest;
-
-        return $this;
-    }
-
-    /**
-     * Get nbMaxGuest
-     *
-     * @return integer
-     */
-    public function getNbMaxGuest()
-    {
-        return $this->nb_max_guest;
-    }
-
-    /**
-     * Set nbMaxAdult
-     *
-     * @param integer $nbMaxAdult
-     *
-     * @return Accomodation
-     */
-    public function setNbMaxAdult($nbMaxAdult)
-    {
-        $this->nb_max_adult = $nbMaxAdult;
-
-        return $this;
-    }
-
-    /**
-     * Get nbMaxAdult
-     *
-     * @return integer
-     */
-    public function getNbMaxAdult()
-    {
-        return $this->nb_max_adult;
-    }
-
-    /**
-     * Set animalsAllowed
-     *
-     * @param boolean $animalsAllowed
-     *
-     * @return Accomodation
-     */
-    public function setAnimalsAllowed($animalsAllowed)
-    {
-        $this->animals_allowed = $animalsAllowed;
-
-        return $this;
-    }
-
-    /**
-     * Get animalsAllowed
-     *
-     * @return boolean
-     */
-    public function getAnimalsAllowed()
-    {
-        return $this->animals_allowed;
-    }
-
-    /**
-     * Set smokersAllowed
-     *
-     * @param boolean $smokersAllowed
-     *
-     * @return Accomodation
-     */
-    public function setSmokersAllowed($smokersAllowed)
-    {
-        $this->smokers_allowed = $smokersAllowed;
-
-        return $this;
-    }
-
-    /**
-     * Get smokersAllowed
-     *
-     * @return boolean
-     */
-    public function getSmokersAllowed()
-    {
-        return $this->smokers_allowed;
-    }
-
-    /**
-     * Set hasInternet
-     *
-     * @param boolean $hasInternet
-     *
-     * @return Accomodation
-     */
-    public function setHasInternet($hasInternet)
-    {
-        $this->has_internet = $hasInternet;
-
-        return $this;
-    }
-
-    /**
-     * Get hasInternet
-     *
-     * @return boolean
-     */
-    public function getHasInternet()
-    {
-        return $this->has_internet;
-    }
-
-    /**
-     * Set propertySize
-     *
-     * @param float $propertySize
-     *
-     * @return Accomodation
-     */
-    public function setPropertySize($propertySize)
-    {
-        $this->property_size = $propertySize;
-
-        return $this;
-    }
-
-    /**
-     * Get propertySize
-     *
-     * @return float
-     */
-    public function getPropertySize()
-    {
-        return $this->property_size;
-    }
-
-    /**
-     * Set floor
-     *
-     * @param integer $floor
-     *
-     * @return Accomodation
-     */
-    public function setFloor($floor)
-    {
-        $this->floor = $floor;
-
-        return $this;
-    }
-
-    /**
-     * Get floor
-     *
-     * @return integer
-     */
-    public function getFloor()
-    {
-        return $this->floor;
-    }
-
-    /**
-     * Set minStay
-     *
-     * @param integer $minStay
-     *
-     * @return Accomodation
-     */
-    public function setMinStay($minStay)
-    {
-        $this->min_stay = $minStay;
-
-        return $this;
-    }
-
-    /**
-     * Get minStay
-     *
-     * @return integer
-     */
-    public function getMinStay()
-    {
-        return $this->min_stay;
-    }
-
-    /**
-     * Set maxStay
-     *
-     * @param integer $maxStay
-     *
-     * @return Accomodation
-     */
-    public function setMaxStay($maxStay)
-    {
-        $this->max_stay = $maxStay;
-
-        return $this;
-    }
-
-    /**
-     * Get maxStay
-     *
-     * @return integer
-     */
-    public function getMaxStay()
-    {
-        return $this->max_stay;
-    }
-
     /**
      * Set type
      *
@@ -726,102 +389,6 @@ class Accomodation
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * Set checkinHour
-     *
-     * @param \DateTime $checkinHour
-     *
-     * @return Accomodation
-     */
-    public function setCheckinHour($checkinHour)
-    {
-        $this->checkin_hour = $checkinHour;
-
-        return $this;
-    }
-
-    /**
-     * Get checkinHour
-     *
-     * @return \DateTime
-     */
-    public function getCheckinHour()
-    {
-        return $this->checkin_hour;
-    }
-
-    /**
-     * Set checkoutHour
-     *
-     * @param \DateTime $checkoutHour
-     *
-     * @return Accomodation
-     */
-    public function setCheckoutHour($checkoutHour)
-    {
-        $this->checkout_hour = $checkoutHour;
-
-        return $this;
-    }
-
-    /**
-     * Get checkoutHour
-     *
-     * @return \DateTime
-     */
-    public function getCheckoutHour()
-    {
-        return $this->checkout_hour;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Accomodation
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Accomodation
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updated_at = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
     }
 
     /**
@@ -895,4 +462,293 @@ class Accomodation
     {
         return $this->host;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNbBedroom()
+    {
+        return $this->nbBedroom;
+    }
+
+    /**
+     * @param mixed $nbBedroom
+     */
+    public function setNbBedroom($nbBedroom)
+    {
+        $this->nbBedroom = $nbBedroom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbBathroom()
+    {
+        return $this->nbBathroom;
+    }
+
+    /**
+     * @param mixed $nbBathroom
+     */
+    public function setNbBathroom($nbBathroom)
+    {
+        $this->nbBathroom = $nbBathroom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbToilet()
+    {
+        return $this->nbToilet;
+    }
+
+    /**
+     * @param mixed $nbToilet
+     */
+    public function setNbToilet($nbToilet)
+    {
+        $this->nbToilet = $nbToilet;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbMaxBaby()
+    {
+        return $this->nbMaxBaby;
+    }
+
+    /**
+     * @param mixed $nbMaxBaby
+     */
+    public function setNbMaxBaby($nbMaxBaby)
+    {
+        $this->nbMaxBaby = $nbMaxBaby;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbMaxChild()
+    {
+        return $this->nbMaxChild;
+    }
+
+    /**
+     * @param mixed $nbMaxChild
+     */
+    public function setNbMaxChild($nbMaxChild)
+    {
+        $this->nbMaxChild = $nbMaxChild;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbMaxGuest()
+    {
+        return $this->nbMaxGuest;
+    }
+
+    /**
+     * @param mixed $nbMaxGuest
+     */
+    public function setNbMaxGuest($nbMaxGuest)
+    {
+        $this->nbMaxGuest = $nbMaxGuest;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbMaxAdult()
+    {
+        return $this->nbMaxAdult;
+    }
+
+    /**
+     * @param mixed $nbMaxAdult
+     */
+    public function setNbMaxAdult($nbMaxAdult)
+    {
+        $this->nbMaxAdult = $nbMaxAdult;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnimalsAllowed()
+    {
+        return $this->animalsAllowed;
+    }
+
+    /**
+     * @param mixed $animalsAllowed
+     */
+    public function setAnimalsAllowed($animalsAllowed)
+    {
+        $this->animalsAllowed = $animalsAllowed;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSmokersAllowed()
+    {
+        return $this->smokersAllowed;
+    }
+
+    /**
+     * @param mixed $smokersAllowed
+     */
+    public function setSmokersAllowed($smokersAllowed)
+    {
+        $this->smokersAllowed = $smokersAllowed;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHasInternet()
+    {
+        return $this->hasInternet;
+    }
+
+    /**
+     * @param mixed $hasInternet
+     */
+    public function setHasInternet($hasInternet)
+    {
+        $this->hasInternet = $hasInternet;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPropertySize()
+    {
+        return $this->propertySize;
+    }
+
+    /**
+     * @param mixed $propertySize
+     */
+    public function setPropertySize($propertySize)
+    {
+        $this->propertySize = $propertySize;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFloor()
+    {
+        return $this->floor;
+    }
+
+    /**
+     * @param mixed $floor
+     */
+    public function setFloor($floor)
+    {
+        $this->floor = $floor;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMinStay()
+    {
+        return $this->minStay;
+    }
+
+    /**
+     * @param mixed $minStay
+     */
+    public function setMinStay($minStay)
+    {
+        $this->minStay = $minStay;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxStay()
+    {
+        return $this->maxStay;
+    }
+
+    /**
+     * @param mixed $maxStay
+     */
+    public function setMaxStay($maxStay)
+    {
+        $this->maxStay = $maxStay;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCheckinHour()
+    {
+        return $this->checkinHour;
+    }
+
+    /**
+     * @param mixed $checkinHour
+     */
+    public function setCheckinHour($checkinHour)
+    {
+        $this->checkinHour = $checkinHour;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCheckoutHour()
+    {
+        return $this->checkoutHour;
+    }
+
+    /**
+     * @param mixed $checkoutHour
+     */
+    public function setCheckoutHour($checkoutHour)
+    {
+        $this->checkoutHour = $checkoutHour;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+    
 }
