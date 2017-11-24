@@ -61,19 +61,19 @@ class User
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
-     * @Groups({"read"})
+     * @Groups({"read", "write"})
      */
     protected $updated_at;
 
     /**
      * @ORM\Column(name="languages", type="text")
-     * @Groups({"read"})
+     * @Groups({"read", "write"})
      */
     protected $languages;
 
     /**
      * @ORM\Column(name="skills", type="text")
-     * @Groups({"read"})
+     * @Groups({"read", "write"})
      */
     protected $skills;
 
