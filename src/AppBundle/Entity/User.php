@@ -42,28 +42,28 @@ class User
     protected $password;
 
     /**
-     * @ORM\Column(name="last_name", type="string", length=255)
-     * @Groups({"read"})
-     */
-    protected $last_name;
-
-    /**
-     * @ORM\Column(name="first_name", type="string", length=255)
-     * @Groups({"read"})
-     */
-    protected $first_name;
-
-    /**
-     * @ORM\Column(name="created_at", type="datetime")
-     * @Groups({"read"})
-     */
-    protected $created_at;
-
-    /**
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="lastName", type="string", length=255)
      * @Groups({"read", "write"})
      */
-    protected $updated_at;
+    protected $lastName;
+
+    /**
+     * @ORM\Column(name="firstName", type="string", length=255)
+     * @Groups({"read", "write"})
+     */
+    protected $firstName;
+
+    /**
+     * @ORM\Column(name="createdAt", type="datetime")
+     * @Groups({"read", "write"})
+     */
+    protected $createdAt;
+
+    /**
+     * @ORM\Column(name="updatedAt", type="datetime")
+     * @Groups({"read", "write"})
+     */
+    protected $updatedAt;
 
     /**
      * @ORM\Column(name="languages", type="text")
@@ -130,15 +130,15 @@ class User
      */
     public function getLastName()
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
     /**
-     * @param mixed $last_name
+     * @param mixed $lastName
      */
-    public function setLastName($last_name)
+    public function setLastName($lastName)
     {
-        $this->last_name = $last_name;
+        $this->lastName = $lastName;
     }
 
     /**
@@ -146,47 +146,15 @@ class User
      */
     public function getFirstName()
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
     /**
-     * @param mixed $first_name
+     * @param mixed $firstName
      */
-    public function setFirstName($first_name)
+    public function setFirstName($firstName)
     {
-        $this->first_name = $first_name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * @param mixed $created_at
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->created_at = $created_at;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
-    /**
-     * @param mixed $updated_at
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->updated_at = $updated_at;
+        $this->firstName = $firstName;
     }
 
     /**
