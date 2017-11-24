@@ -27,6 +27,7 @@ class Message
 
     /**
      * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank()
      */
     protected $content;
 
