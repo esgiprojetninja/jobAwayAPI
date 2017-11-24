@@ -33,28 +33,28 @@ class Candidate
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Accomodation", cascade={"persist"})
-     * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Accommodation", cascade={"persist"})
+     * @ORM\JoinColumn(name="accommodation", referencedColumnName="id")
      */
-    protected $accomodation;
+    protected $accommodation;
 
     /**
-     * @ORM\Column(name="fromDate", type="datetime")
+     * @ORM\Column(name="from_date", type="datetime")
      */
     protected $fromDate;
 
     /**
-     * @ORM\Column(name="toDate", type="datetime")
+     * @ORM\Column(name="to_date", type="datetime")
      */
     protected $toDate;
 
     /**
-     * @ORM\Column(name="createdAt", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime")
      */
     protected $createdAt;
 
     /**
-     * @ORM\Column(name="updatedAt", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
 
@@ -103,27 +103,27 @@ class Candidate
     }
 
     /**
-     * Set accomodation
+     * Set accommodation
      *
-     * @param \AppBundle\Entity\Accomodation $accomodation
+     * @param \AppBundle\Entity\Accommodation $accommodation
      *
      * @return Candidate
      */
-    public function setAccomodation(\AppBundle\Entity\Accomodation $accomodation = null)
+    public function setAccommodation(\AppBundle\Entity\Accommodation $accommodation = null)
     {
-        $this->accomodation = $accomodation;
+        $this->accommodation = $accommodation;
 
         return $this;
     }
 
     /**
-     * Get accomodation
+     * Get accommodation
      *
-     * @return \AppBundle\Entity\Accomodation
+     * @return \AppBundle\Entity\Accommodation
      */
-    public function getAccomodation()
+    public function getAccommodation()
     {
-        return $this->accomodation;
+        return $this->accommodation;
     }
 
     /**

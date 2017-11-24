@@ -25,8 +25,8 @@ class Booking
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Accomodation", cascade={"persist"})
-     * @ORM\JoinColumn(name="accomodation", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Accommodation", cascade={"persist"})
+     * @ORM\JoinColumn(name="accommodation", referencedColumnName="id")
      */
     protected $accommodation;
 
@@ -37,63 +37,63 @@ class Booking
     protected $traveller;
 
     /**
-     * @ORM\Column(name="checkinDate", type="datetime")
+     * @ORM\Column(name="checkin_date", type="datetime")
      */
     protected $checkinDate;
 
     /**
-     * @ORM\Column(name="checkoutDate", type="datetime")
+     * @ORM\Column(name="checkout_date", type="datetime")
      */
     protected $checkoutDate;
 
     /**
-     * @ORM\Column(name="checkinHour", type="string", length=255)
+     * @ORM\Column(name="checkin_hour", type="string", length=255)
      */
     protected $checkinHour;
 
     /**
      * @ORM\Column(name="checkout_hour", type="string", length=255)
      */
-    protected $checkout_hour;
+    protected $checkoutHour;
 
     /**
-     * @ORM\Column(name="checkinDetails", type="string", length=255)
+     * @ORM\Column(name="checkin_details", type="string", length=255)
      */
     protected $checkinDetails;
 
     /**
-     * @ORM\Column(name="checkoutDetails", type="string", length=255)
+     * @ORM\Column(name="checkout_details", type="string", length=255)
      */
     protected $checkoutDetails;
 
     /**
-     * @ORM\Column(name="nbNights", type="integer")
+     * @ORM\Column(name="nb_nights", type="integer")
      */
     protected $nbNights;
 
     /**
-     * @ORM\Column(name="nbPersons", type="integer")
+     * @ORM\Column(name="nb_persons", type="integer")
      */
     protected $nbPersons;
 
     /**
-     * @ORM\Column(name="createdAt", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime")
      */
     protected $createdAt;
 
     /**
-     * @ORM\Column(name="updatedAt", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
 
     /**
      * Set accommodation
      *
-     * @param \AppBundle\Entity\Accomodation $accommodation
+     * @param \AppBundle\Entity\Accommodation $accommodation
      *
      * @return Booking
      */
-    public function setAccommodation(\AppBundle\Entity\Accomodation $accommodation = null)
+    public function setAccommodation(\AppBundle\Entity\Accommodation $accommodation = null)
     {
         $this->accommodation = $accommodation;
 
@@ -103,7 +103,7 @@ class Booking
     /**
      * Get accommodation
      *
-     * @return \AppBundle\Entity\Accomodation
+     * @return \AppBundle\Entity\Accommodation
      */
     public function getAccommodation()
     {
@@ -203,15 +203,15 @@ class Booking
      */
     public function getCheckoutHour()
     {
-        return $this->checkout_hour;
+        return $this->checkoutHour;
     }
 
     /**
-     * @param mixed $checkout_hour
+     * @param mixed $checkoutHour
      */
-    public function setCheckoutHour($checkout_hour)
+    public function setCheckoutHour($checkoutHour)
     {
-        $this->checkout_hour = $checkout_hour;
+        $this->checkoutHour = $checkoutHour;
     }
 
     /**

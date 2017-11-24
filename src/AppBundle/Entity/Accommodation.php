@@ -9,9 +9,9 @@ use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * @ORM\Entity
  * @ApiResource
- * @ORM\Table(name="accomodation")
+ * @ORM\Table(name="accommodation")
  */
-class Accomodation
+class Accommodation
 {
     public function __construct() {
         $this->pictures = new ArrayCollection();
@@ -86,57 +86,57 @@ class Accomodation
     protected $host;
 
     /**
-     * @ORM\Column(name="nbBedroom", type="integer")
+     * @ORM\Column(name="nb_bedroom", type="integer")
      */
     protected $nbBedroom;
 
     /**
-     * @ORM\Column(name="nbBathroom", type="integer")
+     * @ORM\Column(name="nb_bathroom", type="integer")
      */
     protected $nbBathroom;
 
     /**
-     * @ORM\Column(name="nbToilet", type="integer")
+     * @ORM\Column(name="nb_toilet", type="integer")
      */
     protected $nbToilet;
 
     /**
-     * @ORM\Column(name="nbMaxBaby", type="integer")
+     * @ORM\Column(name="nb_max_baby", type="integer")
      */
     protected $nbMaxBaby;
 
     /**
-     * @ORM\Column(name="nbMaxChild", type="integer")
+     * @ORM\Column(name="nb_max_child", type="integer")
      */
     protected $nbMaxChild;
 
     /**
-     * @ORM\Column(name="nbMaxGuest", type="integer")
+     * @ORM\Column(name="nb_max_guest", type="integer")
      */
     protected $nbMaxGuest;
 
     /**
-     * @ORM\Column(name="nbMaxAdult", type="integer")
+     * @ORM\Column(name="nb_max_adult", type="integer")
      */
     protected $nbMaxAdult;
 
     /**
-     * @ORM\Column(name="animalsAllowed", type="boolean")
+     * @ORM\Column(name="animals_allowed", type="boolean")
      */
     protected $animalsAllowed;
 
     /**
-     * @ORM\Column(name="smokersAllowed", type="boolean")
+     * @ORM\Column(name="smokers_allowed", type="boolean")
      */
     protected $smokersAllowed;
 
     /**
-     * @ORM\Column(name="hasInternet", type="boolean")
+     * @ORM\Column(name="has_internet", type="boolean")
      */
     protected $hasInternet;
 
     /**
-     * @ORM\Column(name="propertySize", type="float")
+     * @ORM\Column(name="property_size", type="float")
      */
     protected $propertySize;
 
@@ -146,12 +146,12 @@ class Accomodation
     protected $floor;
 
     /**
-     * @ORM\Column(name="minStay", type="integer")
+     * @ORM\Column(name="min_stay", type="integer")
      */
     protected $minStay;
 
     /**
-     * @ORM\Column(name="maxStay", type="integer")
+     * @ORM\Column(name="max_stay", type="integer")
      */
     protected $maxStay;
 
@@ -161,22 +161,22 @@ class Accomodation
     protected $type;
 
     /**
-     * @ORM\Column(name="checkinHour", type="datetime")
+     * @ORM\Column(name="checkin_hour", type="datetime")
      */
     protected $checkinHour;
 
     /**
-     * @ORM\Column(name="checkoutHour", type="datetime")
+     * @ORM\Column(name="checkout_hour", type="datetime")
      */
     protected $checkoutHour;
 
     /**
-     * @ORM\Column(name="createdAt", type="datetime")
+     * @ORM\Column(name="create_at", type="datetime")
      */
     protected $createdAt;
 
     /**
-     * @ORM\Column(name="updatedAt", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
 
@@ -196,7 +196,7 @@ class Accomodation
      *
      * @param string $title
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setTitle($title)
     {
@@ -220,7 +220,7 @@ class Accomodation
      *
      * @param string $description
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setDescription($description)
     {
@@ -244,7 +244,7 @@ class Accomodation
      *
      * @param string $city
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setCity($city)
     {
@@ -268,7 +268,7 @@ class Accomodation
      *
      * @param string $region
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setRegion($region)
     {
@@ -292,7 +292,7 @@ class Accomodation
      *
      * @param string $country
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setCountry($country)
     {
@@ -316,7 +316,7 @@ class Accomodation
      *
      * @param string $address
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setAddress($address)
     {
@@ -372,7 +372,7 @@ class Accomodation
      *
      * @param string $type
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setType($type)
     {
@@ -396,7 +396,7 @@ class Accomodation
      *
      * @param \AppBundle\Entity\Picture $pictures
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setPictures(\AppBundle\Entity\Picture $pictures = null)
     {
@@ -420,7 +420,7 @@ class Accomodation
      *
      * @param \AppBundle\Entity\Availability $availabilities
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setAvailabilities(\AppBundle\Entity\Availability $availabilities = null)
     {
@@ -444,7 +444,7 @@ class Accomodation
      *
      * @param \AppBundle\Entity\User $host
      *
-     * @return Accomodation
+     * @return Accommodation
      */
     public function setHost(\AppBundle\Entity\User $host = null)
     {
@@ -750,5 +750,5 @@ class Accomodation
     {
         $this->updatedAt = $updatedAt;
     }
-    
+
 }

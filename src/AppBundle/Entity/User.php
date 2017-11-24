@@ -42,13 +42,13 @@ class User
     protected $password;
 
     /**
-     * @ORM\Column(name="lastName", type="string", length=255)
+     * @ORM\Column(name="last_name", type="string", length=255)
      * @Groups({"read", "write"})
      */
     protected $lastName;
 
     /**
-     * @ORM\Column(name="firstName", type="string", length=255)
+     * @ORM\Column(name="first_name", type="string", length=255)
      * @Groups({"read", "write"})
      */
     protected $firstName;
