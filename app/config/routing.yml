@@ -5,4 +5,4 @@ app:
 api:
     resource: '.'
     type: 'api_platform'
-    prefix: '/'
+    prefix: '/api'
