@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
@@ -15,11 +16,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  * })
  * @ORM\Table(name="user")
  */
-class User
+class User implements UserInterface, \Serializable
 {
     public function __construct() {
         $this->updatedAt = new \DateTime();
         $this->createdAt = new \DateTime();
+        $this->isActive = true;
     }
 
     /**
@@ -31,11 +33,18 @@ class User
     protected $id;
 
     /**
-    * @ORM\Column(name="email", type="string", length=255)
+    * @ORM\Column(name="email", type="string", length=255, unique=true)
     * @Groups({"read"})
     * @Assert\Email
     */
     protected $email;
+
+    /**
+     * @ORM\Column(type="string", length=25, unique=true)
+     * @Groups({"read"})
+     * @Assert\NotBlank()
+     */
+    protected $username;
 
     /**
      * @ORM\Column(name="password", type="string", length=255)
@@ -74,6 +83,13 @@ class User
      * @Assert\NotBlank()
      */
     protected $skills;
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     * @Assert\NotBlank()
+     */
+    protected $isActive;
+
 
     /**
      * @ORM\Column(name="createdAt", type="datetime")
@@ -233,4 +249,69 @@ class User
         $this->updatedAt = $updatedAt;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->email,
+            $this->password,
+            ) = unserialize($serialized);
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
