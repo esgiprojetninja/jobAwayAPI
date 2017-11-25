@@ -1,8 +1,12 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Request;
+namespace AppBundle\Controller;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class SecurityController extends Controller
 {
