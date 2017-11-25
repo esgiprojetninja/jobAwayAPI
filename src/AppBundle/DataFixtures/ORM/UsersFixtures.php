@@ -14,6 +14,17 @@ class UsersFixtures extends Fixture
         $faker = \Faker\Factory::create();
         $usersEmail = [];
         $usersUsername = [];
+
+        $userAdmin = new User();
+        $userAdmin->setUsername("app.admin");
+        $userAdmin->setEmail("lambot.rom@gmail.com");
+        $userAdmin->setLastName("Lambot");
+        $userAdmin->setFirstName("Romain");
+        $userAdmin->setSkills("Some skills line Admin");
+        $userAdmin->setLanguages("Anglais, Français");
+        $userAdmin->setPassword(password_hash("Rootroot9", PASSWORD_BCRYPT));
+        $manager->persist($userAdmin);
+
         for ($i = 0; $i < 20; $i++) {
             $validMail = false;
             $validUsername = false;
