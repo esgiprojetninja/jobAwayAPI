@@ -19,8 +19,8 @@ security:
 
         main:
             pattern: ^/
-                http_basic: ~
-                provider: our_db_provider
+            http_basic: ~
+            provider: our_db_provider
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
