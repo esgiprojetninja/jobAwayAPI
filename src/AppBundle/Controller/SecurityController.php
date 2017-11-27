@@ -1,5 +1,7 @@
 <?php
 
+namespace AppBundle\Controller;
+
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
