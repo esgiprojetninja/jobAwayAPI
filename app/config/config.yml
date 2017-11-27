@@ -123,7 +123,8 @@ api_platform:
         authorizationUrl: '/oauth/v2/auth'
         scopes: []
     swagger:
-        api_keys: []
+        api_keys:
+            - { name: 'Authorization', type: 'header' }
     collection:
         order: 'ASC'
         order_parameter_name: 'order'
@@ -162,3 +163,9 @@ api_platform:
             mime_types: ['application/problem+json']
         jsonld:
             mime_types: ['application/ld+json']
+
+lexik_jwt_authentication:
+    private_key_path: '%kernel.root_dir%/../var/jwt/private.pem'
+    public_key_path:  '%kernel.root_dir%/../var/jwt/public.pem'
+    pass_phrase:      'Rootroot9'
+    token_ttl:        3600
