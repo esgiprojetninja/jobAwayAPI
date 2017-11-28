@@ -17,15 +17,31 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
-            pattern: ^/
-            provider: our_db_provider
+        login:
+            pattern: ^/api/login
+            anonymous: ~
+            http_basic: ~
             form_login:
-                login_path: login
-                check_path: login
+                check_path: /api/login_check
+                success_handler:          lexik_jwt_authentication.handler.authentication_success
+                failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session: false
+            logout:
+                path:   user_logout
+                target: /
+
+        api:
+            pattern:   ^/api
+            stateless: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
 
     access_control:
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        #- { path: ^/admin, roles: ROLE_ADMIN }
+        #- { path: ^/api, roles: ROLE_ADMIN }
         # activate different ways to authenticate
 
         # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
