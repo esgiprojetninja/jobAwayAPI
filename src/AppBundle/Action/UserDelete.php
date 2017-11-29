@@ -6,9 +6,19 @@ use AppBundle\Entity\User;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Doctrine\ORM\EntityManager;
 
 class UserDelete
 {
+
+    protected $em;
+
+    public function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
+
     /**
      * @Route(
      *     name="user_delete",
@@ -19,10 +29,11 @@ class UserDelete
      */
     public function __invoke(User $user)
     {
+        $user->setIsActive(false);
 
-        //$this->myService->doSomething($data);
-        var_dump($user);
-        die();
-        return $data;
+        $this->em->persist($user);
+        $this->em->flush();
+
+        die("User ". $user->getUsername() ." is no longer active.");
     }
 }
