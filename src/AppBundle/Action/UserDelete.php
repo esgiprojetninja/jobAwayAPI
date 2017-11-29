@@ -17,11 +17,11 @@ class UserDelete
      * )
      * @Method("DELETE")
      */
-    public function __invoke($data)
+    public function __invoke(User $user)
     {
 
         //$this->myService->doSomething($data);
-        var_dump($data);
+        var_dump($user);
         die();
         return $data;
     }
