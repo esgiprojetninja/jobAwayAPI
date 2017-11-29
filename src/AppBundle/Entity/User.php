@@ -13,8 +13,6 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  * @ApiResource(attributes={
  *     "normalization_context"={"groups"={"read"}},
  *     "denormalization_context"={"groups"={"write"}}
- * }, itemOperations={
- *     "delete"={"method"="DELETE", "route_name"="safe_user_delete"}
  * })
  * @ORM\Table(name="user")
  */
