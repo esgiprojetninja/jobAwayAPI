@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *     "normalization_context"={"groups"={"read"}},
  *     "denormalization_context"={"groups"={"write"}}
  * }, itemOperations={
- *     "specialUserDelete"={"route_name"="user_delete"}
+ *     "delete"={"method"="DELETE", "route_name"="safe_user_delete"}
  * })
  * @ORM\Table(name="user")
  */

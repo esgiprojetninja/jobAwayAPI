@@ -32,7 +32,7 @@ services:
     AppBundle\Action\:
         resource: '../../src/AppBundle/Action'
         public: true
-        tags: ['action.service_arguments']
+        tags: ['api_platform.service_arguments']
 
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:

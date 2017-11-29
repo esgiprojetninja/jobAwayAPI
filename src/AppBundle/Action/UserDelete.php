@@ -21,9 +21,9 @@ class UserDelete
 
     /**
      * @Route(
-     *     name="user_delete",
+     *     name="safe_user_delete",
      *     path="/api/users/{id}",
-     *     defaults={"_api_resource_class"=User::class, "_api_item_operation_name"="specialUserDelete"}
+     *     defaults={"_api_resource_class"=User::class, "_api_item_operation_name"="safe_user_delete"}
      * )
      * @Method("DELETE")
      */
@@ -34,6 +34,6 @@ class UserDelete
         $this->em->persist($user);
         $this->em->flush();
 
-        die("User ". $user->getUsername() ." is no longer active.");
+        return new Response('User '.$user->getUsername().' is no longer active!');
     }
 }
