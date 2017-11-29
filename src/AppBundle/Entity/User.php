@@ -22,6 +22,7 @@ class User implements UserInterface, \Serializable
         $this->updatedAt = new \DateTime();
         $this->createdAt = new \DateTime();
         $this->isActive = true;
+        $this->roles = ['ROLE_USER'];
     }
 
     /**
@@ -34,14 +35,21 @@ class User implements UserInterface, \Serializable
 
     /**
     * @ORM\Column(name="email", type="string", length=255, unique=true)
-    * @Groups({"read"})
+    * @Groups({"read", "write"})
     * @Assert\Email
     */
     protected $email;
 
     /**
-     * @ORM\Column(type="string", length=25, unique=true)
-     * @Groups({"read"})
+     * @ORM\Column(name="roles", type="json_array")
+     * @Groups({"read", "write"})
+     * @Assert\NotBlank
+     */
+    protected $roles = [];
+
+    /**
+     * @ORM\Column(name="username", type="string", length=25, unique=true)
+     * @Groups({"read", "write"})
      * @Assert\NotBlank()
      */
     protected $username;
@@ -265,9 +273,20 @@ class User implements UserInterface, \Serializable
         $this->isActive = $isActive;
     }
 
+    /**
+     * @return mixed
+     */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return $this->roles;
+    }
+
+    /**
+     * @param mixed $roles
+     */
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
     }
 
     public function eraseCredentials()
@@ -279,7 +298,7 @@ class User implements UserInterface, \Serializable
     {
         return serialize(array(
             $this->id,
-            $this->email,
+            $this->username,
             $this->password,
         ));
     }
@@ -289,7 +308,7 @@ class User implements UserInterface, \Serializable
     {
         list (
             $this->id,
-            $this->email,
+            $this->username,
             $this->password,
             ) = unserialize($serialized);
     }

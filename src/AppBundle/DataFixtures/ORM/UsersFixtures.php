@@ -23,6 +23,7 @@ class UsersFixtures extends Fixture
         $userAdmin->setSkills("Some skills line Admin");
         $userAdmin->setLanguages("Anglais, Français");
         $userAdmin->setPassword(password_hash("Rootroot9", PASSWORD_BCRYPT));
+        $userAdmin->setRoles(['ROLE_ADMIN']);
         $manager->persist($userAdmin);
 
         for ($i = 0; $i < 20; $i++) {
