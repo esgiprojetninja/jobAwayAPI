@@ -20,4 +20,27 @@ class DefaultController extends FOSRestController
         $view = $this->view($data, Response::HTTP_OK);
         return $view;
     }
+
+    /**
+     * @Rest\Get("/default/users")
+     */
+    public function usersAction(Request $request)
+    {
+        $client = static::createClient();
+        $client->request(
+            'POST',
+            '/api/login_check',
+            array(
+                '_username' => 'r.lambot',
+                '_password' => 'Rootroot9',
+            )
+        );
+
+        $data = json_decode($client->getResponse()->getContent(), true);
+
+        $client = static::createClient();
+        $client->setServerParameter('HTTP_Authorization', sprintf('Bearer %s', $data['token']));
+
+        var_dump($client->request('GET', '/api/users'));
+    }
 }
