@@ -5,7 +5,6 @@ namespace AppBundle\DataFixtures\ORM;
 use AppBundle\Entity\Accommodation;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Picture;
-use AppBundle\Entity\Availability;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -15,7 +14,6 @@ class AccommodationsFixtures extends Fixture
     {
         $faker = \Faker\Factory::create();
         $pictures = $manager->getRepository(Picture::class)->findAll();
-        $availabilities = $manager->getRepository(Availability::class)->findAll();
         $users = $manager->getRepository(User::class)->findAll();
 
         for ($i = 0; $i < 20; $i++) {
@@ -35,14 +33,6 @@ class AccommodationsFixtures extends Fixture
                 if (!in_array($pictures, $accommodationPictures)) {
                     $accommodationPictures[] = $picture;
                     $accommodation->setPictures($picture);
-                }
-            }
-            $accommodationAvailabilities = [];
-            for($i2 = 0; $i2 < 5; $i2++) {
-                $availability = $availabilities[rand(0, 19)];
-                if (!in_array($availability, $accommodationAvailabilities)) {
-                    $accommodationAvailabilities[] = $availability;
-                    $accommodation->setAvailabilities($availability);
                 }
             }
 

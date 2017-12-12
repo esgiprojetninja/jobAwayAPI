@@ -16,7 +16,6 @@ class Accommodation
 {
     public function __construct() {
         $this->pictures = new ArrayCollection();
-        $this->availabilities = new ArrayCollection();
         $this->updatedAt = new \DateTime();
         $this->createdAt = new \DateTime();
     }
@@ -81,12 +80,6 @@ class Accommodation
      * @ORM\JoinColumn(name="pictures", referencedColumnName="id")
      */
     protected $pictures;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Availability", cascade={"persist"})
-     * @ORM\JoinColumn(name="availabilities", referencedColumnName="id")
-     */
-    protected $availabilities;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", cascade={"persist"})
@@ -441,30 +434,6 @@ class Accommodation
     public function getPictures()
     {
         return $this->pictures;
-    }
-
-    /**
-     * Set availabilities
-     *
-     * @param \AppBundle\Entity\Availability $availabilities
-     *
-     * @return Accommodation
-     */
-    public function setAvailabilities(\AppBundle\Entity\Availability $availabilities = null)
-    {
-        $this->availabilities = $availabilities;
-
-        return $this;
-    }
-
-    /**
-     * Get availabilities
-     *
-     * @return \AppBundle\Entity\Availability
-     */
-    public function getAvailabilities()
-    {
-        return $this->availabilities;
     }
 
     /**
