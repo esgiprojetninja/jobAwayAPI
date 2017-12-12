@@ -22,14 +22,7 @@ security:
             security: false
 
         api_docs:
-            pattern: ^/api/docs
-            form_login: false
-            provider: our_db_provider
-            http_basic:
-                realm: "Please enter your login data."
-
-        api_graphql:
-            pattern: ^/api/graphql
+            pattern: ^/api/(docs|graphql)
             form_login: false
             provider: our_db_provider
             http_basic:
