@@ -28,6 +28,20 @@ security:
             http_basic:
                 realm: "Please enter your login data."
 
+        api_graphql:
+            pattern: ^/api/graphql
+            form_login: false
+            provider: our_db_provider
+            http_basic:
+                realm: "Please enter your login data."
+
+        main:
+            pattern:   ^/
+            anonymous: true
+            stateless: true
+            provider: our_db_provider
+            lexik_jwt: ~
+
         login:
             pattern: ^/api/login
             stateless: true
@@ -41,13 +55,6 @@ security:
             logout:
                 path:   user_logout
                 target: /
-
-        main:
-            pattern:   ^/
-            anonymous: true
-            stateless: true
-            provider: our_db_provider
-            lexik_jwt: ~
 
         api:
             pattern:   ^/api
