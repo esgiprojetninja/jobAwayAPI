@@ -20,7 +20,8 @@ class AppKernel extends Kernel
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new AppBundle\AppBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle()
+            new ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle(),
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
@@ -46,11 +47,17 @@ class AppKernel extends Kernel
 
     public function getCacheDir()
     {
+        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+            return '/dev/shm/jobAwayApi/cache/' .  $this->getEnvironment();
+        }
         return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
     }
 
     public function getLogDir()
     {
+        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+            return '/dev/shm/jobAwayApi/logs';
+        }
         return dirname(__DIR__).'/var/logs';
     }
 

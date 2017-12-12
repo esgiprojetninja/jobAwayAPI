@@ -2,7 +2,14 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
+app_action:
+    resource: '@AppBundle/Action/'
+    type: annotation
+
 api:
     resource: '.'
     type: 'api_platform'
     prefix: '/api'
+
+api_login_check:
+    path: /api/login_check

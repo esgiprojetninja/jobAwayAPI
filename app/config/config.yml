@@ -109,7 +109,7 @@ api_platform:
         fetch_partial: false
         max_joins: 30
         force_eager: true
-    enable_fos_user: true # Enable the FOSUserBundle integration.
+    enable_fos_user: false # Enable the FOSUserBundle integration.
     enable_nelmio_api_doc: true # Enable the Nelmio Api doc integration.
     enable_swagger: true # Enable the Swagger documentation and export.
     enable_swagger_ui: true # Enable Swagger ui.
@@ -123,7 +123,8 @@ api_platform:
         authorizationUrl: '/oauth/v2/auth'
         scopes: []
     swagger:
-        api_keys: []
+        api_keys:
+            - { name: 'Authorization', type: 'header' }
     collection:
         order: 'ASC'
         order_parameter_name: 'order'
@@ -162,3 +163,31 @@ api_platform:
             mime_types: ['application/problem+json']
         jsonld:
             mime_types: ['application/ld+json']
+lexik_jwt_authentication:
+    private_key_path: '%jwt_private_key_path%'
+    public_key_path:  '%jwt_public_key_path%'
+    pass_phrase:      '%jwt_key_pass_phrase%'
+    token_ttl:        '%jwt_token_ttl%'
+    user_identity_field: username
+
+    # token encoding/decoding settings
+    encoder:
+        # token encoder/decoder service - default implementation based on the namshi/jose library
+        service:            lexik_jwt_authentication.encoder.default
+        # crypto engine used by the encoder service
+        crypto_engine:  openssl
+        # encryption algorithm used by the encoder service
+        signature_algorithm: RS256
+
+    # token extraction settings
+    token_extractors:
+        authorization_header:      # look for a token as Authorization Header
+            enabled: true
+            prefix:  Bearer
+            name:    Authorization
+        cookie:                    # check token in a cookie
+            enabled: false
+            name:    BEARER
+        query_parameter:           # check token in query string parameter
+            enabled: false
+            name:    bearer

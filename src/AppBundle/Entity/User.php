@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * @ORM\Entity
@@ -15,11 +16,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  * })
  * @ORM\Table(name="user")
  */
-class User
+class User implements AdvancedUserInterface, \Serializable
 {
     public function __construct() {
         $this->updatedAt = new \DateTime();
         $this->createdAt = new \DateTime();
+        $this->isActive = true;
+        $this->roles = ['ROLE_USER'];
     }
 
     /**
@@ -31,11 +34,25 @@ class User
     protected $id;
 
     /**
-    * @ORM\Column(name="email", type="string", length=255)
-    * @Groups({"read"})
+    * @ORM\Column(name="email", type="string", length=255, unique=true)
+    * @Groups({"read", "write"})
     * @Assert\Email
     */
     protected $email;
+
+    /**
+     * @ORM\Column(name="roles", type="json_array")
+     * @Groups({"read", "write"})
+     * @Assert\NotBlank
+     */
+    protected $roles = [];
+
+    /**
+     * @ORM\Column(name="username", type="string", length=25, unique=true)
+     * @Groups({"read", "write"})
+     * @Assert\NotBlank()
+     */
+    protected $username;
 
     /**
      * @ORM\Column(name="password", type="string", length=255)
@@ -74,6 +91,13 @@ class User
      * @Assert\NotBlank()
      */
     protected $skills;
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     * @Assert\NotBlank()
+     */
+    protected $isActive;
+
 
     /**
      * @ORM\Column(name="createdAt", type="datetime")
@@ -233,4 +257,102 @@ class User
         $this->updatedAt = $updatedAt;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param mixed $roles
+     */
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->isActive,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->isActive,
+            ) = unserialize($serialized);
+    }
+
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return $this->isActive;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }
