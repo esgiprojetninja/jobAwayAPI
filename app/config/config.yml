@@ -123,7 +123,8 @@ api_platform:
         authorizationUrl: '/oauth/v2/auth'
         scopes: []
     swagger:
-        api_keys: []
+        api_keys:
+            - { name: 'Authorization', type: 'header' }
     collection:
         order: 'ASC'
         order_parameter_name: 'order'
