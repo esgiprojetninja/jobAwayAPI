@@ -64,7 +64,6 @@ class AccommodationsFixtures extends Fixture
     {
         return array(
             UsersFixtures::class,
-            AvailabilitiesFixtures::class,
             PicturesFixtures::class,
         );
     }
