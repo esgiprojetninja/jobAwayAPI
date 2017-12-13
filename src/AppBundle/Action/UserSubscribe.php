@@ -23,24 +23,26 @@ class UserSubscribe
     /**
      * @Route(
      *     name="user_add",
-     *     path="/api/users/",
-     *     defaults={"_api_resource_class"=User::class, "_api_item_operation_name"="user_add"}
+     *     path="/api/users/add",
+     *     defaults={"_api_resource_class"=User::class, "_api_collection_operation_name"="list"}
      * )
      * @Method("POST")
      */
-    public function __invoke($data)
+    public function __invoke(Request $request)
     {
-       /* var_dump($data);
         $user = new User();
-        $username = $this->get('request')->request->get('username');
-        var_dump($username);
-        die();
-        $user->setUsername($username);
+        $user->setUsername($request->request->get('username'));
+        $user->setEmail($request->request->get('email'));
+        $user->setFirstName($request->request->get('first_name'));
+        $user->setLastName($request->request->get('last_name'));
+        $user->setLanguages($request->request->get('languages'));
+        $user->setSkills($request->request->get('skills'));
+        $user->setPassword($request->request->get('password'));
 
         $this->em->persist($user);
         $this->em->flush();
 
-        var_dump($user);*/
+        var_dump($user);
 
         return new Response('You just subscribed!');
     }
