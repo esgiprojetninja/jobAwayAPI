@@ -13,7 +13,9 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  * @ApiResource(attributes={
  *     "normalization_context"={"groups"={"read"}},
  *     "denormalization_context"={"groups"={"write"}}
- * })
+ * }, collectionOperations={
+ *        "list"={"route_name"="user_add"}
+ *     })
  * @ORM\Table(name="user")
  */
 class User implements AdvancedUserInterface, \Serializable
@@ -57,10 +59,7 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @ORM\Column(name="password", type="string", length=255)
      * @Groups({"write"})
-     * @Assert\Length(
-     *      min = 4,
-     *      max = 20,
-     * )
+     * @Assert\NotBlank()
      */
     protected $password;
 
@@ -158,7 +157,7 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_BCRYPT);
     }
 
     /**
