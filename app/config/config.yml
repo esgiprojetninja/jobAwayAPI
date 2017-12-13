@@ -15,7 +15,7 @@ framework:
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
         strict_requirements: ~
-    form: ~
+    form: true
     csrf_protection: ~
     validation: { enable_annotations: true }
     serializer: { enable_annotations: true }
@@ -158,6 +158,8 @@ api_platform:
             mime_types: ['application/json']
         html:
             mime_types: ['text/html']
+        form:
+            mime_types: ['multipart/form-data']
     error_formats:
         jsonproblem:
             mime_types: ['application/problem+json']

@@ -28,16 +28,19 @@ class UserSubscribe
      * )
      * @Method("POST")
      */
-    public function __invoke(Request $request)
+    public function __invoke($data)
     {
+       /* var_dump($data);
         $user = new User();
-        $username = $request->request->get('username');
+        $username = $this->get('request')->request->get('username');
+        var_dump($username);
+        die();
         $user->setUsername($username);
 
         $this->em->persist($user);
         $this->em->flush();
 
-        var_dump($user);
+        var_dump($user);*/
 
         return new Response('You just subscribed!');
     }
