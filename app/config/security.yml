@@ -21,19 +21,12 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        api_docs:
+        api_docs_graphql:
             pattern: ^/api/(docs|graphql)
             form_login: false
             provider: our_db_provider
             http_basic:
                 realm: "Please enter your login data."
-
-        main:
-            pattern:   ^/
-            anonymous: true
-            stateless: true
-            provider: our_db_provider
-            lexik_jwt: ~
 
         login:
             pattern: ^/api/login
@@ -48,6 +41,13 @@ security:
             logout:
                 path:   user_logout
                 target: /
+
+        main:
+            pattern:   ^/
+            anonymous: true
+            stateless: true
+            provider: our_db_provider
+            lexik_jwt: ~
 
         api:
             pattern:   ^/api
