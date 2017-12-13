@@ -22,7 +22,7 @@ class UsersFixtures extends Fixture
         $userAdmin->setFirstName("Romain");
         $userAdmin->setSkills("Some skills line Admin");
         $userAdmin->setLanguages("Anglais, Français");
-        $userAdmin->setPassword(password_hash("Rootroot9", PASSWORD_BCRYPT));
+        $userAdmin->setPassword("Rootroot9");
         $userAdmin->setRoles(['ROLE_ADMIN']);
         $manager->persist($userAdmin);
 
@@ -35,7 +35,7 @@ class UsersFixtures extends Fixture
             $user->setEmail($faker->email);
             $user->setFirstName($faker->firstName);
             $user->setLastName($faker->lastName);
-            $user->setPassword($faker->password);
+            $user->setPassword($faker->text);
             $user->setLanguages($faker->text);
             $user->setSkills($faker->text);
             $user->setIsActive($faker->boolean);

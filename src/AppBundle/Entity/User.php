@@ -59,10 +59,7 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @ORM\Column(name="password", type="string", length=255)
      * @Groups({"write"})
-     * @Assert\Length(
-     *      min = 4,
-     *      max = 20,
-     * )
+     * @Assert\NotBlank()
      */
     protected $password;
 
@@ -160,7 +157,7 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_BCRYPT);
     }
 
     /**
