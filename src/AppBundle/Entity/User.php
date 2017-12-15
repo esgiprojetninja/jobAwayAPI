@@ -13,8 +13,11 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  * @ApiResource(attributes={
  *     "normalization_context"={"groups"={"read"}},
  *     "denormalization_context"={"groups"={"write"}}
- * }, collectionOperations={
+ *     }, collectionOperations={
  *        "list"={"route_name"="user_add"}
+ *     },itemOperations={
+ *         "get"={"method"="GET", "access_control"="is_granted('ROLE_USER') and object.email == user.email"},
+ *         "put"={"method"="PUT", "access_control"="is_granted('ROLE_USER') and object.email == user.email"}
  *     })
  * @ORM\Table(name="user")
  */
@@ -40,7 +43,7 @@ class User implements AdvancedUserInterface, \Serializable
     * @Groups({"read", "write"})
     * @Assert\Email
     */
-    protected $email;
+    public $email;
 
     /**
      * @ORM\Column(name="roles", type="json_array")
