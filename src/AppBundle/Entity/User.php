@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
  *     }, collectionOperations={
  *        "list"={"route_name"="user_add"}
  *     },itemOperations={
- *         "get"={"method"="GET", "access_control"="is_granted('ROLE_USER') and object.email == user.email"},
+ *         "get"={"method"="GET", "access_control"="(is_granted('ROLE_USER') and object.email == user.email ) or is_granted('ROLE_ADMIN')"},
  *         "put"={"method"="PUT", "access_control"="is_granted('ROLE_USER') and object.email == user.email"}
  *     })
  * @ORM\Table(name="user")
