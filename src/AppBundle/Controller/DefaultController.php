@@ -32,8 +32,18 @@ class DefaultController extends FOSRestController
         $statement->bindValue('query', '%'.$request->query->get('q').'%');
         $statement->execute();
         $results = $statement->fetchAll();
-        var_dump($results);
-        return "Oui";
+
+        $allReturn = [];
+
+        foreach($results as $values){
+            $allReturn["cities"][] = $values['city'];
+            $allReturn["countries"][] = $values['country'];
+        }
+
+        $response = new Response(json_encode($allReturn));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 
     /**
