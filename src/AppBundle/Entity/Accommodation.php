@@ -52,7 +52,7 @@ class Accommodation
     protected $region;
 
     /**
-     * @ORM\Column(name="coutry", type="string", length=255)
+     * @ORM\Column(name="country", type="string", length=255)
      * @Assert\NotBlank()
      */
     protected $country;

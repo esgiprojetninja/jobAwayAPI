@@ -22,6 +22,31 @@ class DefaultController extends FOSRestController
     }
 
     /**
+     * @Rest\Get("/api/getLocationList" , name="get_cities")
+     */
+    public function getLocationListAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $connection = $em->getConnection();
+        $statement = $connection->prepare("select city, country from accommodation where city like :query or country like :query");
+        $statement->bindValue('query', '%'.$request->query->get('q').'%');
+        $statement->execute();
+        $results = $statement->fetchAll();
+
+        $return = [];
+        foreach($results as $values){
+            $return["cities"][] = $values['city'];
+            $return["countries"][] = $values['country'];
+        }
+        $return['countries'] = array_unique($return['countries']);
+        $return['cities'] = array_unique($return['cities']);
+
+        $response = new Response(json_encode($return));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+
+    /**
      * @Rest\Get("/default/users")
      */
     public function usersAction(Request $request)
