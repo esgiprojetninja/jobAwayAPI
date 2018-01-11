@@ -33,16 +33,16 @@ class DefaultController extends FOSRestController
         $statement->execute();
         $results = $statement->fetchAll();
 
-        $allReturn = [];
-
+        $return = [];
         foreach($results as $values){
-            $allReturn["cities"][] = $values['city'];
-            $allReturn["countries"][] = $values['country'];
+            $return["cities"][] = $values['city'];
+            $return["countries"][] = $values['country'];
         }
+        $return['countries'] = array_unique($return['countries']);
+        $return['cities'] = array_unique($return['cities']);
 
-        $response = new Response(json_encode($allReturn));
+        $response = new Response(json_encode($return));
         $response->headers->set('Content-Type', 'application/json');
-
         return $response;
     }
 
