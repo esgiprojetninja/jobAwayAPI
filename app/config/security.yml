@@ -44,6 +44,7 @@ security:
 
         getter_api:
             methods: [GET]
+            pattern: ^/api/accommodations
             anonymous: true
             stateless: true
             security: false
