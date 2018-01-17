@@ -42,6 +42,12 @@ security:
                 path:   user_logout
                 target: /
 
+        getter_api:
+            methods: [GET]
+            anonymous: true
+            stateless: true
+            security: false
+
         main:
             pattern:   ^/
             anonymous: true
