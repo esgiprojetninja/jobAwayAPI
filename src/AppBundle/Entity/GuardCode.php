@@ -16,8 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "create"={"route_name"="create_guard"}
  *     },
  *     itemOperations={
- *          "get"={"method"="GET"},
- *          "check"={"route_name"="check_guard"}
+ *          "get"={"method"="GET"}
  *     }
  * )
  * @ORM\Table(name="guard_code")
