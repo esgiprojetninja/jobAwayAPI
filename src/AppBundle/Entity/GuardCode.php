@@ -35,6 +35,7 @@ class GuardCode
         $this->nbAttempts = 3;
         $now = new \DateTime();
         $this->validityDateTime = $now->add(new \DateInterval("PT15M"));
+        $this->active = true;
     }
 
     /**
@@ -83,6 +84,11 @@ class GuardCode
      * @Groups({"read"})
      */
     protected $updatedAt;
+
+    /**
+     * @ORM\Column(name="active", type="boolean")
+     */
+    protected $active;
 
     /**
      * @return mixed
@@ -194,6 +200,26 @@ class GuardCode
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+    public function decrementAttempts() {
+        $this->nbAttempts--;
     }
 
 

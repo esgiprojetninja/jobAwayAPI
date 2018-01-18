@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Doctrine\ORM\OptimisticLockException;
 use JMS\Serializer\Exception\Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -29,27 +30,53 @@ class GuardCodeController extends Controller
         $this->jwtManager = $jwtManager;
     }
 
+    private function saveCode($code) {
+        $this->em->persist($code);
+        try {
+            $this->em->flush();
+        } catch (OptimisticLockException $e) {
+            throw $e;
+        }
+    }
+
     /**
      * @Route("/check")
      * @Method({"POST"})
      * @param Request $req
      * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @throws OptimisticLockException
      */
     public function checkAction(Request $req)
     {
         try {
             $repo = $this->em->getRepository(GuardCode::class);
             $code = $repo->findOneBy(["code" => $req->get("code")]);
-            if ($code == null) {
+            if ($code !== null) {
+                $now = new \DateTime();
+                if ($code->getNbAttempts() <= 0 || $now > $code->getValidityDateTime()) {
+                    $code->setActive(false);
+                }
+                if (!$code->getActive()) {
+                    $this->saveCode($code);
+                    return new JsonResponse([
+                        "hasError" => true,
+                        "message" => "Code is not active anymore."
+                    ]);
+                }
+                $code->decrementAttempts();
+            }
+            if ($code == null || $code->getUser()->getEmail() != $req->get("email")) {
                 return new JsonResponse([
                     "hasError" => true,
-                    "message" => "Couldn't authenticate"
+                    "message" => "Couldn't authenticate."
                 ]);
             }
             $user = $code->getUser();
-            if ($user->getEmail() == $req->get("email")) {
-                return new JsonResponse(["token" => $this->jwtManager->create($user)]);
-            }
+            $code->setActive(false);
+            $this->saveCode($code);
+            return new JsonResponse([
+                "token" => $this->jwtManager->create($user)
+            ]);
         } catch (Exception $exception) {
             return new JsonResponse([
                 "hasError" => true,
