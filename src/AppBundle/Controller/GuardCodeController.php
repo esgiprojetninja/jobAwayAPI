@@ -56,14 +56,14 @@ class GuardCodeController extends Controller
                 if ($code->getNbAttempts() <= 0 || $now > $code->getValidityDateTime()) {
                     $code->setActive(false);
                 }
+                $code->decrementAttempts();
+                $this->saveCode($code);
                 if (!$code->getActive()) {
-                    $this->saveCode($code);
                     return new JsonResponse([
                         "hasError" => true,
                         "message" => "Code is not active anymore."
                     ]);
                 }
-                $code->decrementAttempts();
             }
             if ($code == null || $code->getUser()->getEmail() != $req->get("email")) {
                 return new JsonResponse([
