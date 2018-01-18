@@ -11,11 +11,15 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 /**
  * @ORM\Entity
  * @ApiResource(attributes={
- *     "normalization_context"={"groups"={"read"}},
- *     "denormalization_context"={"groups"={"write"}}
- * }, collectionOperations={
- *        "list"={"route_name"="user_add"}
- *     })
+     *     "normalization_context"={"groups"={"read"}},
+     *     "denormalization_context"={"groups"={"write"}}
+ *      }, collectionOperations={
+ *          "list"={"route_name"="user_add"},
+ *          "me"={"route_name"="get_me"}
+ *     }, itemOperations={
+ *          "get"={"method"="GET"}
+ *     }
+ * )
  * @ORM\Table(name="user")
  */
 class User implements AdvancedUserInterface, \Serializable
