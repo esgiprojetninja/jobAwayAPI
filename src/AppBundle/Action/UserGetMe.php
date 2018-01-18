@@ -21,7 +21,7 @@ class UserGetMe
     /**
      * @Route(
      *     name="get_me",
-     *     path="/api/users/me",
+     *     path="/api/users/me.json",
      *     defaults={"_api_resource_class"=User::class, "_api_collection_operation_name"="me"}
      * )
      * @Method("GET")
