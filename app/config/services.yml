@@ -14,10 +14,6 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    'AppBundle\EventListener\DeserializeListener':
-        tags:
-            - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onKernelRequest', priority: 2 }
-
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     AppBundle\:

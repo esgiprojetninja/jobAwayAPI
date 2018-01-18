@@ -26,7 +26,7 @@ class UserSubscribe
      * @Route(
      *     name="user_add",
      *     path="/api/users/add",
-     *     defaults={"_api_resource_class"=User::class, "_api_collection_operation_name"="list"}
+     *     defaults={"_api_resource_class"=User::class, "_api_collection_operation_name"="user_add"}
      * )
      * @Method("POST")
      */
@@ -39,7 +39,6 @@ class UserSubscribe
         if($request->request->get('password') != $request->request->get('confirm_password')) {
             return new Response('Passwords are different');
         }
-
 
         $user = new User();
         $user->setUsername($request->request->get('username'));
