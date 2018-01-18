@@ -14,6 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * },
  *      collectionOperations={
  *          "create"={"route_name"="create_guard"}
+ *     },
+ *     itemOperations={
+ *          "get"={"method"="GET"},
+ *          "check"={"route_name"="check_guard"}
  *     }
  * )
  * @ORM\Table(name="guard_code")
@@ -25,7 +29,7 @@ class GuardCode
         $this->createdAt = new \DateTime();
         $codeArray = [];
         for($i = 0; $i < 6; $i++) {
-           $codeArray[] = rand(0, 10);
+           $codeArray[] = rand(0, 9);
         }
         $this->code = join("", $codeArray);
         $this->nbAttempts = 3;
@@ -44,7 +48,6 @@ class GuardCode
     /**
      * @ORM\ManyToOne(targetEntity="User", cascade={"persist"})
      * @ORM\JoinColumn(name="user", referencedColumnName="id", onDelete="SET NULL")
-     * @Groups({"read"})
      */
     protected $user;
 
