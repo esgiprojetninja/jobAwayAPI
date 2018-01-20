@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 
 /**
  * @ORM\Entity
@@ -76,8 +77,9 @@ class Accommodation
     protected $latitude;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Picture",cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Picture", inversedBy="url", cascade={"persist"})
      * @ORM\JoinColumn(name="pictures", referencedColumnName="id")
+     * @ApiSubresource
      */
     protected $pictures;
 
