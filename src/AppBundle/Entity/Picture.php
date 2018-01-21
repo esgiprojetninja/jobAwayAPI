@@ -30,6 +30,7 @@ class Picture
 
     /**
      * @ORM\Column(name="url", type="text")
+     * @ORM\OneToOne(targetEntity="Accommodations", mappedBy="pictures")
      * @Assert\Url()
      */
     protected $url;
