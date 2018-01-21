@@ -29,6 +29,10 @@ class User implements AdvancedUserInterface, \Serializable
         $this->createdAt = new \DateTime();
         $this->isActive = true;
         $this->roles = ['ROLE_USER'];
+        $this->lastName = "";
+        $this->firstName = "";
+        $this->skills = "";
+        $this->languages = "";
     }
 
     /**
@@ -70,28 +74,24 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @ORM\Column(name="last_name", type="string", length=255)
      * @Groups({"read", "write"})
-     * @Assert\NotBlank()
      */
     protected $lastName;
 
     /**
      * @ORM\Column(name="first_name", type="string", length=255)
      * @Groups({"read", "write"})
-     * @Assert\NotBlank()
      */
     protected $firstName;
 
     /**
      * @ORM\Column(name="languages", type="text")
      * @Groups({"read", "write"})
-     * @Assert\NotBlank()
      */
     protected $languages;
 
     /**
      * @ORM\Column(name="skills", type="text")
      * @Groups({"read", "write"})
-     * @Assert\NotBlank()
      */
     protected $skills;
 
