@@ -38,20 +38,20 @@ class AccommodationsFixtures extends Fixture
 
             $accommodation->setHost($users[rand(0, 19)]);
 
-            $accommodation->setNbBedroom($faker->numberBetween());
-            $accommodation->setNbBathroom($faker->numberBetween());
-            $accommodation->setNbToilet($faker->numberBetween());
-            $accommodation->setNbMaxBaby($faker->numberBetween());
-            $accommodation->setNbMaxAdult($faker->numberBetween());
-            $accommodation->setNbMaxGuest($faker->numberBetween());
-            $accommodation->setNbMaxChild($faker->numberBetween());
+            $accommodation->setNbBedroom($faker->numberBetween(1,5));
+            $accommodation->setNbBathroom($faker->numberBetween(1,3));
+            $accommodation->setNbToilet($faker->numberBetween(1,3));
+            $accommodation->setNbMaxBaby($faker->numberBetween(0,5));
+            $accommodation->setNbMaxAdult($faker->numberBetween(1,14));
+            $accommodation->setNbMaxGuest($faker->numberBetween(0,8));
+            $accommodation->setNbMaxChild($faker->numberBetween(1,10));
             $accommodation->setAnimalsAllowed($faker->boolean);
             $accommodation->setSmokersAllowed($faker->boolean);
             $accommodation->setHasInternet($faker->boolean);
             $accommodation->setPropertySize($faker->randomFloat);
-            $accommodation->setFloor($faker->numberBetween());
-            $accommodation->setMinStay($faker->numberBetween());
-            $accommodation->setMaxStay($faker->numberBetween());
+            $accommodation->setFloor($faker->numberBetween(1,5));
+            $accommodation->setMinStay($faker->numberBetween(1,7));
+            $accommodation->setMaxStay($faker->numberBetween(7,14));
             $accommodation->setType($faker->text);
             $accommodation->setCheckinHour($faker->datetime);
             $accommodation->setCheckoutHour($faker->datetime);

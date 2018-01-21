@@ -49,6 +49,13 @@ security:
             stateless: true
             security: false
 
+        user_subscribe:
+            methods: [POST]
+            pattern: ^/api/users/add
+            anonymous: true
+            stateless: true
+            security: false
+
         main:
             pattern:   ^/
             anonymous: true
