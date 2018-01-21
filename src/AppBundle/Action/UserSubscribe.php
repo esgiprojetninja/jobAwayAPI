@@ -5,6 +5,7 @@ namespace AppBundle\Action;
 use AppBundle\Entity\User;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,6 +30,9 @@ class UserSubscribe
      *     defaults={"_api_resource_class"=User::class, "_api_collection_operation_name"="user_add"}
      * )
      * @Method("POST")
+     * @param Request $request
+     * @return User|JsonResponse|Response
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function __invoke(Request $request)
     {
@@ -49,12 +53,12 @@ class UserSubscribe
 
         if (count($errors) > 0) {
             $errorsString = (string) $errors;
-            return new Response($errorsString);
+            return new JsonResponse($errorsString);
         }
 
         $this->em->persist($user);
         $this->em->flush();
 
-        return new Response('You just subscribed!');
+        return $user;
     }
 }
