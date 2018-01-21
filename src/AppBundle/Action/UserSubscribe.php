@@ -43,17 +43,12 @@ class UserSubscribe
         $user = new User();
         $user->setUsername($request->request->get('username'));
         $user->setEmail($request->request->get('email'));
-        $user->setFirstName($request->request->get('first_name'));
-        $user->setLastName($request->request->get('last_name'));
-        $user->setLanguages($request->request->get('languages'));
-        $user->setSkills($request->request->get('skills'));
         $user->setPassword($request->request->get('password'));
 
         $errors = $this->validator->validate($user);
 
         if (count($errors) > 0) {
             $errorsString = (string) $errors;
-
             return new Response($errorsString);
         }
 
