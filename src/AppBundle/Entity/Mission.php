@@ -26,7 +26,7 @@ class Mission
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Accommodation", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Accommodation", cascade={"persist"}, inversedBy="missions")
      * @ORM\JoinColumn(name="accommodation", referencedColumnName="id")
      */
     protected $accommodation;
@@ -114,6 +114,7 @@ class Mission
      * @Assert\DateTime()
      */
     protected $updatedAt;
+
 
     /**
      * Set accommodation

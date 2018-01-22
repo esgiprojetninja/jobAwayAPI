@@ -5,12 +5,13 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping\OneToMany;
 use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Annotation\ApiSubresource;
 
 /**
  * @ORM\Entity
- * @ApiResource
+ * @ApiResource(attributes={"filters"={"accommodation.search_filter"}})
  * @ORM\Table(name="accommodation")
  */
 class Accommodation
@@ -19,6 +20,7 @@ class Accommodation
         $this->pictures = new ArrayCollection();
         $this->updatedAt = new \DateTime();
         $this->createdAt = new \DateTime();
+        $this->missions = new ArrayCollection();
     }
 
     /**
@@ -202,6 +204,12 @@ class Accommodation
      * @Assert\DateTime()
      */
     protected $updatedAt;
+
+    /**
+     * @OneToMany(targetEntity="Mission", mappedBy="accommodation", fetch="EAGER")
+     */
+    protected  $missions;
+
 
     /**
      * Get id
@@ -747,6 +755,22 @@ class Accommodation
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMissions()
+    {
+        return $this->missions;
+    }
+
+    /**
+     * @param mixed $missions
+     */
+    public function setMissions($missions)
+    {
+        $this->missions = $missions;
     }
 
 }
