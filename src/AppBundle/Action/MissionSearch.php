@@ -35,13 +35,14 @@ class MissionSearch
 
     public function __invoke(Request $request)
     {
-        $connection = $this->em->getConnection();
-        $statement = $connection->prepare("SELECT * FROM mission
-                                                    inner JOIN accommodation ON mission.accommodation = accommodation.id
-                                                    WHERE accommodation.city LIKE :query OR accommodation.country LIKE :query");
-        $statement->bindValue('query', '%'.$request->query->get('q').'%');
-        $statement->execute();
-        $missionsByCity = $statement->fetchAll();
+        $missionsByCity = $this->em
+            ->getRepository('AppBundle:Accommodation')
+            ->createQueryBuilder('a')
+            ->join('a.mission', 'm')
+            ->where('a.city LIKE :query OR a.country LIKE :query')
+            ->setParameter('query', '%'.$request->request->get('q').'%')
+            ->getQuery()
+            ->getResult();
 
         return $missionsByCity;
     }

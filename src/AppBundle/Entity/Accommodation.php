@@ -203,6 +203,11 @@ class Accommodation
      */
     protected $updatedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Mission", inversedBy="id")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $mission;
 
     /**
      * Get id
