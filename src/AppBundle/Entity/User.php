@@ -97,6 +97,7 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @ORM\Column(name="is_active", type="boolean")
+     * @Groups({"read", "write"})
      * @Assert\NotBlank()
      */
     protected $isActive;
