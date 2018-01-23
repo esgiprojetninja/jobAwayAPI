@@ -67,14 +67,12 @@ class Accommodation
     protected $address;
 
     /**
-     * @ORM\Column(name="longitude", type="float")
-     * @Assert\NotBlank()
-     */
+     * @ORM\Column(name="longitude", type="float", nullable=true)
+    */
     protected $longitude;
 
     /**
-     * @ORM\Column(name="latitude", type="float")
-     * @Assert\NotBlank()
+     * @ORM\Column(name="latitude", type="float", nullable=true)
      */
     protected $latitude;
 
