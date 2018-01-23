@@ -25,7 +25,7 @@ class MissionsFixtures extends Fixture
             $mission->setCheckoutDate($faker->dateTime);
             $mission->setCheckinDetails($faker->text);
             $mission->setCheckoutDetails($faker->text);
-            $mission->setNbPersons($faker->randomNumber(1,10));
+            $mission->setNbPersons($faker->numberBetween(1,10));
             $isActive = $faker->boolean;
             $isBooked = $faker->boolean;
             if($isActive){
@@ -36,7 +36,7 @@ class MissionsFixtures extends Fixture
                 $mission->setIsBooked(false);
             }
             $mission->setDescription($faker->text);
-            $mission->setNbNights($faker->randomNumber(1,14));
+            $mission->setNbNights($faker->numberBetween(1,14));
             $mission->setAccommodation($accommodations[rand(0, 19)]);
             $mission->setTraveller($users[rand(0, 19)]);
             $manager->persist($mission);
