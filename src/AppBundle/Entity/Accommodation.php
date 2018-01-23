@@ -80,7 +80,7 @@ class Accommodation
 
     /**
      * @ORM\ManyToOne(targetEntity="Picture", inversedBy="url", cascade={"persist"})
-     * @ORM\JoinColumn(name="pictures", referencedColumnName="id")
+     * @ORM\JoinColumn(name="pictures", referencedColumnName="id", nullable=true)
      * @ApiSubresource
      */
     protected $pictures;
