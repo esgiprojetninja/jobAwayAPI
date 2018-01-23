@@ -18,7 +18,7 @@ class AccommodationsFixtures extends Fixture
 
         for ($i = 0; $i < 20; $i++) {
             $accommodation = new Accommodation();
-            $accommodation->setTitle($faker->title);
+            $accommodation->setTitle($faker->catchPhrase());
             $accommodation->setDescription($faker->text);
             $accommodation->setCity($faker->city);
             $accommodation->setCountry($faker->country);
