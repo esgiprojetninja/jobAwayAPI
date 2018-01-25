@@ -1,0 +1,28 @@
+{
+  "success_url": "/",
+  "env": {
+    "SYMFONY_ENV": "prod",
+    "SYMFONY__DATABASE_DRIVER": "pdo_pgsql",
+    "SYMFONY__MAILER_TRANSPORT": "smtp",
+    "SYMFONY__MAILER_HOST": "your-mailer.com",
+    "SYMFONY__MAILER_USER": "your-mailer-username",
+    "SYMFONY__MAILER_PASSWORD": "your-mailer-password",
+    "SYMFONY__CORS_ALLOW_ORIGIN": "https://your-client-url.com",
+    "SYMFONY__LOCALE": "en",
+    "SYMFONY__SECRET": {
+      "generator": "secret"
+    },
+    "DATA_BASE_URL": "mysql://bcede3f5c59f45:a4214d07@us-cdbr-iron-east-05.cleardb.net/heroku_ef15c888a0f721e?reconnect=true",
+    "jwt_private_key_path": "./var/cache/jwt/private.pem",
+    "public_key_path": "./var/cache/jwt/public.pem"
+  },
+  "addons": [
+    "cleardb"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-php"
+    }
+  ]
+}
+
