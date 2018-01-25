@@ -101,7 +101,7 @@ doctrine_migrations:
 
 api_platform:
     title: 'JobAwayAPI'
-    description: ''
+    description: 'Toto'
     version: '1.0.0'
     name_converter: ~
     path_segment_name_generator: 'api_platform.path_segment_name_generator.underscore'
