@@ -20,6 +20,7 @@ class Candidate
         $this->createdAt = new \DateTime();
         $this->fromDate = new \DateTime();
         $this->toDate = new \DateTime();
+        $this->status = 2;
     }
 
     /**
@@ -52,6 +53,12 @@ class Candidate
      * @Assert\DateTime()
      */
     protected $toDate;
+
+    /**
+     * @ORM\Column(name="status", type="integer")
+     * 0 -> refused, 1 -> accepted, 2 -> pending
+     */
+    protected $status;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
@@ -145,6 +152,22 @@ class Candidate
         $this->user = $user;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 
     /**
