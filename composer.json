@@ -58,8 +58,7 @@
     "post-install-cmd": [
       "@symfony-scripts",
       "php bin/console doctrine:schema:update --force",
-      "php bin/console doctrine:fixtures:load",
-      "y"
+      "php bin/console doctrine:fixtures:load"
     ],
     "post-update-cmd": [
       "@symfony-scripts"
