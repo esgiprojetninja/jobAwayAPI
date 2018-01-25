@@ -37,20 +37,24 @@ class CandidateStatus
 
         $connection = $this->em->getConnection();
         if($request->query->has('status')){
-            switch ($request->query->get('status')){
-                case "ACCEPTED":
-                    $statusCode = 1;
-                    break;
-                case "DECLINED":
-                    $statusCode = 0;
-                    break;
-                case "PENDING":
-                    $statusCode = 2;
-                    break;
-                default:
-                    return json_encode(["error_msg" => "Undefined status variable"]);
+            if(strtoupper($request->query->get('status')) == "ALL"){
+                $statement = $connection->prepare("SELECT * FROM candidate WHERE user = :user_id");
+            } else {
+                switch (strtoupper($request->query->get('status'))) {
+                    case "ACCEPTED":
+                        $statusCode = 1;
+                        break;
+                    case "DECLINED":
+                        $statusCode = 0;
+                        break;
+                    case "PENDING":
+                        $statusCode = 2;
+                        break;
+                    default:
+                        return json_encode(["error_msg" => "Undefined status variable"]);
+                }
+                $statement = $connection->prepare("SELECT * FROM candidate WHERE user = :user_id AND status = " . $statusCode);
             }
-            $statement = $connection->prepare("SELECT * FROM candidate WHERE user = :user_id AND status = ".$statusCode);
         }else{
             $statement = $connection->prepare("SELECT * FROM candidate WHERE user = :user_id");
         }
