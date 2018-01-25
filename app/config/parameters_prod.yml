@@ -1,0 +1,15 @@
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: devaway
+    database_user: homestead
+    database_password: secret
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: roland.kuku@gmail.com
+    mailer_password: ilarriveapiedparalchine
+    secret: ThisTokenIsNotSoSecretChangeIt
+    jwt_private_key_path: '%kernel.root_dir%/../var/jwt/private.pem'
+    jwt_public_key_path: '%kernel.root_dir%/../var/jwt/public.pem'
+    jwt_key_pass_phrase: toto
+    jwt_token_ttl: 3600
