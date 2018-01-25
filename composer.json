@@ -59,7 +59,10 @@
       "@symfony-scripts"
     ],
     "post-update-cmd": [
-      "@symfony-scripts"
+      "@symfony-scripts",
+      "php bin/console doctrine:schema:update --force",
+      "php bin/console doctrine:fixtures:load",
+      "y"
     ]
   },
   "config": {
