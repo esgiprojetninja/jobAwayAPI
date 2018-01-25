@@ -24,6 +24,7 @@ class CandidatesFixtures extends Fixture
             $candidate->setUser($user);
             $accommodation = $accommodations[rand(0,19)];
             $candidate->setAccommodation($accommodation);
+            $candidate->setStatus($faker->numberBetween(0,2));
             $candidate->setFromDate($faker->dateTime);
             $candidate->setToDate($faker->dateTime);
             if(in_array($user->getId().$accommodation->getId(), $candidates)) {
