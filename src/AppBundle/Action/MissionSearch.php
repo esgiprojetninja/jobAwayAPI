@@ -37,13 +37,14 @@ class MissionSearch
     {
 
         $connection = $this->em->getConnection();
-        $statement = $connection->prepare("SELECT * FROM mission
+        $statement = $connection->prepare("SELECT mission.* FROM mission
                                                     inner JOIN accommodation ON mission.accommodation = accommodation.id
-                                                    WHERE accommodation.city LIKE :query OR accommodation.country LIKE :query");
+                                                    WHERE accommodation.city LIKE :query OR accommodation.country LIKE :query
+                                                    ");
         $statement->bindValue('query', '%'.$request->query->get('q').'%');
         $statement->execute();
         $missionsByCity = $statement->fetchAll();
-
+        
         return $missionsByCity;
     }
 }

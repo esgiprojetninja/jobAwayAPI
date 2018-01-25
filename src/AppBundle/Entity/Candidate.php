@@ -18,6 +18,8 @@ class Candidate
     public function __construct() {
         $this->updatedAt = new \DateTime();
         $this->createdAt = new \DateTime();
+        $this->fromDate = new \DateTime();
+        $this->toDate = new \DateTime();
     }
 
     /**
