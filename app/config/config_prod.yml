@@ -24,10 +24,10 @@ monolog:
 
 lexik_jwt_authentication:
     # private_key_path: '%jwt_private_key_path%'
-    jwt_private_key_path: '%kernel.root_dir%/../var/jwt/private.pem'
-    jwt_public_key_path: '%kernel.root_dir%/../var/jwt/public.pem'
-    jwt_key_pass_phrase: ""
-    jwt_token_ttl: 36000
+    private_key_path: '%kernel.root_dir%/../var/jwt/private.pem'
+    public_key_path:  '%kernel.root_dir%/../var/jwt/public.pem'
+    pass_phrase:      '%env(jwt_key_pass_phrase)%'
+    token_ttl:        '%env(jwt_token_ttl)%'
     user_identity_field: username
 
     # token encoding/decoding settings
