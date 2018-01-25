@@ -19,3 +19,4 @@
 .idea/*
 *.php~
 app/DoctrineMigrations/*
+app.json
