@@ -14,7 +14,7 @@
     },
     "DATA_BASE_URL": "mysql://bcede3f5c59f45:a4214d07@us-cdbr-iron-east-05.cleardb.net/heroku_ef15c888a0f721e?reconnect=true",
     "jwt_private_key_path": "./var/cache/jwt/private.pem",
-    "public_key_path": "./var/cache/jwt/public.pem"
+    "jwt_public_key_path": "./var/cache/jwt/public.pem"
   },
   "addons": [
     "cleardb"
